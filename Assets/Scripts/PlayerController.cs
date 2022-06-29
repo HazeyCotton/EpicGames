@@ -7,19 +7,35 @@ using TMPro;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 0;
+    public float acceleration = 1.1f;
+    public float deceleration = 1.4f;
+    public float maxSpeed = 2;
+    public float rotationSpeed = 2.5f;
+    public float rotationDeceleration = 0.1f;
+    public float maxVerticalTilt = 0.15f;
+    public float maxHorizontalTilt = 0.3f;
+
     public TextMeshProUGUI timerLabel;
     public GameObject finishLabelObject;
 
+    private float propulsion;
+    private float propulsionSum;
+    private float rotation;
+    private Vector3 rotationSum;
+
     private Rigidbody rb;
     private float time;
-    private float movementX;
-    private float movementY;
     private bool reachedFlag;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
+
+        propulsion = 0;
+        propulsionSum = 0;
+        rotation = 0;
+        rotationSum = new Vector3(0, 0, 0);
+
         time = 0;
         finishLabelObject.SetActive(false);
         reachedFlag = false;
@@ -31,23 +47,50 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 movementVector = movementValue.Get<Vector2>();
 
-        movementX = movementVector.x;
-        movementY = movementVector.y;
+        propulsion = movementVector.y;
+        rotation = movementVector.x;
     }
 
     void FixedUpdate()
     {
+
+        // Speed limitation
         if (speed > 10)
-        {
             speed -= 1 * Time.deltaTime;
+
+        // Propulsion control
+        if (propulsion == 0) {
+            propulsionSum *= 1f-deceleration;
+            rotationSum.x *= 1f-rotationDeceleration;
+        } else {
+            propulsionSum += propulsion*acceleration*Time.deltaTime;
+            rotationSum.x += propulsion*rotationSpeed*Time.deltaTime;
         }
 
-        rb.AddForce(new Vector3(movementX, 0.0f, movementY) * speed);
+        // Propulsion limitation
+        if (Mathf.Abs(propulsionSum) > maxSpeed)
+            propulsionSum = propulsionSum > 0 ? maxSpeed : -maxSpeed;
 
+        // Rotation control
+        if (rotation == 0) {
+            rotationSum.z *= 1f-rotationDeceleration;
+        } else {
+            rotationSum.y += rotation*rotationSpeed*Time.deltaTime;
+            rotationSum.z -= rotation*rotationSpeed*Time.deltaTime;
+        }
+
+        // Tilt limitation
+        if (Mathf.Abs(rotationSum.x) > maxVerticalTilt)
+            rotationSum.x = rotationSum.x > 0 ? maxVerticalTilt : -maxVerticalTilt;
+        if (Mathf.Abs(rotationSum.z) > maxHorizontalTilt)
+            rotationSum.z = rotationSum.z > 0 ? maxHorizontalTilt : -maxHorizontalTilt;
+
+        // Apply force
+        rb.AddForce(new Vector3(Mathf.Sin(rotationSum.y), 0.0f, Mathf.Cos(rotationSum.y)) * propulsionSum * speed);
+
+        // Timer update
         if (!reachedFlag)
-        {
             time += Time.deltaTime;
-        }
 
         SetTimerLabel();
     }
@@ -57,7 +100,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("SpeedBoost"))
         {
             other.gameObject.SetActive(false);
-            speed += 10;
+            speed += 2;
         } else if (other.gameObject.CompareTag("Finish"))
         {
             finishLabelObject.SetActive(true);
@@ -72,5 +115,9 @@ public class PlayerController : MonoBehaviour
         var fraction = (time * 100) % 100;
 
         timerLabel.text = string.Format("{0:00} : {1:00} : {2:00}", minutes, seconds, fraction);
+    }
+
+    public Vector3 GetRotation() {
+        return rotationSum;
     }
 }

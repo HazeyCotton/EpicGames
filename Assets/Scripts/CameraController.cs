@@ -1,40 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class CameraController : MonoBehaviour
 {
-    public GameObject player;
+	public float positionSmoothTime = 1f;		// a public variable to adjust smoothing of camera motion
+    public float rotationSmoothTime = 1f;
+    public float positionMaxSpeed = 50f;        //max speed camera can move
+    public float rotationMaxSpeed = 50f;
+	public Transform desiredPose;			// the desired pose for the camera, specified by a transform in the game
+    public Transform target;
+	
+    protected Vector3 currentPositionCorrectionVelocity;
+    protected Quaternion quaternionDeriv;
 
-    private Vector3 offset;
-    private float tiltX;
-    private float tiltZ;
+    protected float angle;
+    
+	void LateUpdate ()
+	{
 
-    private float maxTilt = 45;
+        if (desiredPose != null)
+        {
+            transform.position = Vector3.SmoothDamp(transform.position, desiredPose.position, ref currentPositionCorrectionVelocity, positionSmoothTime, positionMaxSpeed, Time.deltaTime);
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        offset = transform.position - player.transform.position;
-        tiltX = transform.rotation.x - player.transform.rotation.x;
-        tiltZ = transform.rotation.z - player.transform.rotation.z;
-    }
+            var targForward = desiredPose.forward;
 
-    void FixedUpdate()
-    {
-        
-    }
+            var targetRotation = Quaternion.LookRotation(targForward, Vector3.up);
+            targetRotation = Quaternion.Euler(targetRotation.eulerAngles.x, targetRotation.eulerAngles.y, target.rotation.eulerAngles.z);
+            transform.rotation = QuaternionUtil.SmoothDamp(transform.rotation, targetRotation, ref quaternionDeriv, rotationSmoothTime);
 
-    void Update()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void LateUpdate()
-    {
-        transform.position = player.transform.position + offset;
-
-        transform.rotation = Quaternion.Euler(player.transform.rotation.x + tiltX, 0.0f, player.transform.rotation.z + tiltZ);
+        }
     }
 }
+
