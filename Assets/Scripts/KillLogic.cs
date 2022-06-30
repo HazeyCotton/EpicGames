@@ -20,7 +20,7 @@ public class KillLogic : MonoBehaviour
 
                 if (pc.deathCount >= 3)
                 {
-                    SceneManager.LoadScene("Sample Level");
+                    SceneManager.LoadScene("StartScreen");
                     Time.timeScale = 1f; 
                 }
 

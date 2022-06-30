@@ -28,13 +28,12 @@ public class PlayerController : MonoBehaviour
     private bool reachedFlag;
 
     public Vector3 _lastCheckpointPos;
-    public Quaternion _lastCheckPointRotation;
+
     public int deathCount;
 
     void Awake()
     {
         _lastCheckpointPos = transform.position;
-        _lastCheckPointRotation = transform.rotation;
 
         rb = GetComponent<Rigidbody>();
 
