@@ -37,7 +37,7 @@ public class MonkeyControl : MonoBehaviour
 
         _inputForward = movementVector.y;
         _inputTurn = movementVector.x;
-        Debug.Log(_inputForward);
+        //Debug.Log(_inputForward);
     }
 
     void FixedUpdate()
@@ -46,6 +46,8 @@ public class MonkeyControl : MonoBehaviour
         anim.SetFloat("velx", _inputTurn);
         anim.SetFloat("vely", _inputForward);
 
+        //transform.position = new Vector3(player.transform.position.x, player.transform.position.y - 0.6f, player.transform.position.z);
+        
         transform.rotation = Quaternion.Euler(
             ctrl.GetRotation().x / Mathf.PI * 180, 
             ctrl.GetRotation().y / Mathf.PI * 180, 

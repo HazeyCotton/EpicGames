@@ -27,8 +27,15 @@ public class PlayerController : MonoBehaviour
     private float time;
     private bool reachedFlag;
 
+    public Vector3 _lastCheckpointPos;
+    public Quaternion _lastCheckPointRotation;
+    public int deathCount;
+
     void Awake()
     {
+        _lastCheckpointPos = transform.position;
+        _lastCheckPointRotation = transform.rotation;
+
         rb = GetComponent<Rigidbody>();
 
         propulsion = 0;
@@ -120,4 +127,10 @@ public class PlayerController : MonoBehaviour
     public Vector3 GetRotation() {
         return rotationSum;
     }
+
+    void OnCollsionenter()
+    {
+
+    }
+
 }
