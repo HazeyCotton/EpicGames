@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public float rotationDeceleration = 0.1f;
     public float maxVerticalTilt = 0.15f;
     public float maxHorizontalTilt = 0.3f;
+    public int points = 0;
 
     public TextMeshProUGUI timerLabel;
     public GameObject finishLabelObject;
@@ -105,6 +106,10 @@ public class PlayerController : MonoBehaviour
         {
             finishLabelObject.SetActive(true);
             reachedFlag = true;
+        } else if (other.gameObject.CompareTag("Coin"))
+        {
+            other.gameObject.SetActive(false);
+            points++;
         }
     }
 
