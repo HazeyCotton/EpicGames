@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public int points = 0;
 
     public TextMeshProUGUI timerLabel;
+    public TextMeshProUGUI livesLabel;
+
     public GameObject finishLabelObject;
 
     private float propulsion;
@@ -28,8 +30,14 @@ public class PlayerController : MonoBehaviour
     private float time;
     private bool reachedFlag;
 
+    public Vector3 _lastCheckpointPos;
+
+    public int deathCount;
+
     void Awake()
     {
+        _lastCheckpointPos = transform.position;
+
         rb = GetComponent<Rigidbody>();
 
         propulsion = 0;
@@ -94,6 +102,7 @@ public class PlayerController : MonoBehaviour
             time += Time.deltaTime;
 
         SetTimerLabel();
+        SetLivesLabel();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -122,7 +131,24 @@ public class PlayerController : MonoBehaviour
         timerLabel.text = string.Format("{0:00} : {1:00} : {2:00}", minutes, seconds, fraction);
     }
 
+    void SetLivesLabel()
+    {
+        int lives = 3 - deathCount;
+        if (lives != 1)
+        {
+            livesLabel.text = lives.ToString() + " Lives Left";
+        } else {
+            livesLabel.text = lives.ToString() + " Life Left";
+        }
+    }
+
     public Vector3 GetRotation() {
         return rotationSum;
     }
+
+    void OnCollsionenter()
+    {
+
+    }
+
 }
