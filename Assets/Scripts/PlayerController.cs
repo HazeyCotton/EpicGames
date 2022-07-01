@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     public TextMeshProUGUI timerLabel;
     public TextMeshProUGUI livesLabel;
+    public TextMeshProUGUI scoreLabel;
 
     public GameObject finishLabelObject;
 
@@ -103,6 +104,7 @@ public class PlayerController : MonoBehaviour
 
         SetTimerLabel();
         SetLivesLabel();
+        SetScoreLabel();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -140,6 +142,13 @@ public class PlayerController : MonoBehaviour
         } else {
             livesLabel.text = lives.ToString() + " Life Left";
         }
+    }
+
+    void SetScoreLabel()
+    {
+       
+        scoreLabel.text = "Score: " + points.ToString();
+        
     }
 
     public Vector3 GetRotation() {
