@@ -2049,6 +2049,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1420456180}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1435870089 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7138710147157413678, guid: 54043dc060fff924f906a683dfd47d1e, type: 3}
+  m_PrefabInstance: {fileID: 2832254417426893143}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1525340599
 GameObject:
   m_ObjectHideFlags: 0
@@ -2344,9 +2355,9 @@ MonoBehaviour:
   maxVerticalTilt: 0.15
   maxHorizontalTilt: 0.3
   timerLabel: {fileID: 1308091826}
+  livesLabel: {fileID: 1435870089}
   finishLabelObject: {fileID: 317766046}
   _lastCheckpointPos: {x: 0, y: 0, z: 0}
-  _lastCheckPointRotation: {x: 0, y: 0, z: 0, w: 0}
   deathCount: 0
 --- !u!1 &1707623799
 GameObject:

@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     public float maxHorizontalTilt = 0.3f;
 
     public TextMeshProUGUI timerLabel;
+    public TextMeshProUGUI livesLabel;
+
     public GameObject finishLabelObject;
 
     private float propulsion;
@@ -99,6 +101,7 @@ public class PlayerController : MonoBehaviour
             time += Time.deltaTime;
 
         SetTimerLabel();
+        SetLivesLabel();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -121,6 +124,17 @@ public class PlayerController : MonoBehaviour
         var fraction = (time * 100) % 100;
 
         timerLabel.text = string.Format("{0:00} : {1:00} : {2:00}", minutes, seconds, fraction);
+    }
+
+    void SetLivesLabel()
+    {
+        int lives = 3 - deathCount;
+        if (lives != 1)
+        {
+            livesLabel.text = lives.ToString() + " Lives Left";
+        } else {
+            livesLabel.text = lives.ToString() + " Life Left";
+        }
     }
 
     public Vector3 GetRotation() {
