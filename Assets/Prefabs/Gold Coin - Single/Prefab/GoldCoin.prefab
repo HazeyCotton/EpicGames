@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4244701375105762}
-  - component: {fileID: 2724647285071887568}
   m_Layer: 0
   m_Name: GoldCoin
   m_TagString: Coin
@@ -32,18 +31,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &2724647285071887568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1498403948531744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc0dc38b210044410a41139df4718bbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1667978803413412
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,6 +43,7 @@ GameObject:
   - component: {fileID: 33160559832521050}
   - component: {fileID: 23941041030839374}
   - component: {fileID: 1543256754821583102}
+  - component: {fileID: 2949150178185450048}
   m_Layer: 0
   m_Name: GoldCoin
   m_TagString: Coin
@@ -137,5 +125,23 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.00963985, y: 0.0020546722, z: 0.010133399}
+  m_Size: {x: 0.04963985, y: 0.04205467, z: 0.0401334}
   m_Center: {x: -2.3283064e-10, y: 0.0010272979, z: -2.3283064e-10}
+--- !u!114 &2949150178185450048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667978803413412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc0dc38b210044410a41139df4718bbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinRate: 0
+  xRot: 0
+  yRot: 0
+  zRot: 0
+  bounceRate: 0
+  bounceLimit: 0

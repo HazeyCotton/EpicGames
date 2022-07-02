@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
             reachedFlag = true;
         } else if (other.gameObject.CompareTag("Coin"))
         {
-            other.gameObject.SetActive(false);
+            //other.gameObject.SetActive(false);
             points++;
         }
     }
@@ -155,9 +155,6 @@ public class PlayerController : MonoBehaviour
         return rotationSum;
     }
 
-    void OnCollsionenter()
-    {
-
-    }
+ 
 
 }
