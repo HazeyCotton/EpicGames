@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Template/Scenes/SampleScene.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
   - enabled: 1
+    path: Assets/Scenes/StartScreen.unity
+    guid: f7cad66ff54f84a09b26b364b35d9b4a
+  - enabled: 1
     path: Assets/Scenes/Ford Sample Level.unity
     guid: 4035d023107622a438576bfc6141287c
   m_configObjects:
