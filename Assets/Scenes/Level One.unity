@@ -300,7 +300,7 @@ GameObject:
   - component: {fileID: 107954964}
   m_Layer: 0
   m_Name: Railing
-  m_TagString: Untagged
+  m_TagString: ObstacleOrRailing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -947,7 +947,7 @@ GameObject:
   - component: {fileID: 278458353}
   m_Layer: 0
   m_Name: Bump
-  m_TagString: Untagged
+  m_TagString: ObstacleOrRailing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -1735,6 +1735,107 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6924590197736534168, guid: 1f494e0fbc5a34cbd97df7509f31b55b, type: 3}
   m_PrefabInstance: {fileID: 609033479}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &639466542 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6924590198098616703, guid: 1f494e0fbc5a34cbd97df7509f31b55b, type: 3}
+  m_PrefabInstance: {fileID: 609033479}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &639466550
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639466542}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 3c1c130f6e1be75418d305f8e478e0f0, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &656739428
 GameObject:
   m_ObjectHideFlags: 0
@@ -3435,7 +3536,7 @@ GameObject:
   - component: {fileID: 1241940737}
   m_Layer: 0
   m_Name: Railing3
-  m_TagString: Untagged
+  m_TagString: ObstacleOrRailing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4353,7 +4454,7 @@ GameObject:
   - component: {fileID: 1616303392}
   m_Layer: 0
   m_Name: Bump 2
-  m_TagString: Untagged
+  m_TagString: ObstacleOrRailing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -4552,7 +4653,13 @@ MonoBehaviour:
   - name: BackgroundMusic
     clip: {fileID: 8300000, guid: 90eae78e8ce85a849b5b0ca11b2de641, type: 3}
     loop: 1
-    volume: 0.089
+    volume: 0.086
+    pitch: 1
+    source: {fileID: 0}
+  - name: HitObject
+    clip: {fileID: 8300000, guid: 0d34d6e748eb93042b0ff0bf1c6f120c, type: 3}
+    loop: 0
+    volume: 0.094
     pitch: 1
     source: {fileID: 0}
 --- !u!4 &1651993744
@@ -5178,7 +5285,7 @@ GameObject:
   - component: {fileID: 1924119717}
   m_Layer: 0
   m_Name: Railing2
-  m_TagString: Untagged
+  m_TagString: ObstacleOrRailing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

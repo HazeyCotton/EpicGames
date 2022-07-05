@@ -7,7 +7,7 @@ public class GameStarter : MonoBehaviour
 {
     public void StartGame ()
     {
-        SceneManager.LoadScene("Ford Sample Level");
+        SceneManager.LoadScene("Level One");
         Time.timeScale = 1f; 
     }
 }

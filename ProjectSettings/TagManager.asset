@@ -6,6 +6,8 @@ TagManager:
   tags:
   - SpeedBoost
   - KillBarrier
+  - Coin
+  - ObstacleOrRailing
   layers:
   - Default
   - TransparentFX

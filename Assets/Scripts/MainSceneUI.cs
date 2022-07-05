@@ -19,16 +19,18 @@ public class MainSceneUI : MonoBehaviour
     public void Levels_Lv1() {
         Menu.SetActive(false);
         Levels.SetActive(false);
-        Scenes.OpenScene("Sample Level");
+        Scenes.OpenScene("Level One");
     }
 
-    public void Levels_Lv2() {
+    public void Levels_Lv2()
+    {
         Menu.SetActive(false);
         Levels.SetActive(false);
-        Scenes.OpenScene("Sample Level");
+        Scenes.OpenScene("Ford Sample Level");
     }
 
-    public void Levels_Lv3() {
+    public void Levels_Lv3()
+    {
         Menu.SetActive(false);
         Levels.SetActive(false);
         Scenes.OpenScene("Sample Level");

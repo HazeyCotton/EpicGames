@@ -35,8 +35,15 @@ public class PlayerController : MonoBehaviour
 
     public int deathCount;
 
+    AudioSource audioSource;
+    float engineVolume;
+
     void Awake()
     {
+        engineVolume = 0f;
+        audioSource = GetComponent<AudioSource>();
+
+
         _lastCheckpointPos = transform.position;
 
         rb = GetComponent<Rigidbody>();
@@ -63,6 +70,13 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        //audio stuff
+        if (speed > 10)
+            engineVolume = 1f;
+        else
+            engineVolume = speed * 0.1f;
+
+
 
         // Speed limitation
         if (speed > 10)
@@ -113,15 +127,24 @@ public class PlayerController : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             speed += 2;
-        } else if (other.gameObject.CompareTag("Finish"))
+        }
+        else if (other.gameObject.CompareTag("Finish"))
         {
             finishLabelObject.SetActive(true);
             reachedFlag = true;
-        } else if (other.gameObject.CompareTag("Coin"))
+        }
+        else if (other.gameObject.CompareTag("Coin"))
         {
             //other.gameObject.SetActive(false);
             points++;
         }
+        
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.gameObject.CompareTag("ObstacleOrRailing"))
+            FindObjectOfType<AudioManager>().Play("HitObject");
     }
 
     void SetTimerLabel()
