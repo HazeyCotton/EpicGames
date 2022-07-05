@@ -12,6 +12,8 @@ public class KillLogic : MonoBehaviour
             Rigidbody rb = c.attachedRigidbody.gameObject.GetComponent<Rigidbody>();
             if (pc != null && rb != null) 
             {
+                FindObjectOfType<AudioManager>().Play("PlayerDeath");
+                
                 pc.transform.position = pc._lastCheckpointPos;
 
                 pc.deathCount++;
