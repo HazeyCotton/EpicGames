@@ -477,7 +477,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Level 2
+  m_Text: 'Level 2
+
+    {Disabled}'
 --- !u!1 &5983241380826221316
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,7 +558,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Level 3
+  m_Text: 'Level 3
+
+    (Disabled)'
 --- !u!1 &5983241381125818307
 GameObject:
   m_ObjectHideFlags: 0

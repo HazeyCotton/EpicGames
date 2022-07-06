@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
 
     AudioSource audioSource;
     float engineVolume;
+    float oldPropulsion;
 
     void Awake()
     {
@@ -70,14 +71,6 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        //audio stuff
-        if (speed > 10)
-            engineVolume = 1f;
-        else
-            engineVolume = speed * 0.1f;
-
-
-
         // Speed limitation
         if (speed > 10)
             speed -= 1 * Time.deltaTime;
@@ -94,6 +87,11 @@ public class PlayerController : MonoBehaviour
         // Propulsion limitation
         if (Mathf.Abs(propulsionSum) > maxSpeed)
             propulsionSum = propulsionSum > 0 ? maxSpeed : -maxSpeed;
+
+        //audio stuff
+        engineVolume = Mathf.Abs(propulsionSum / maxSpeed);
+        audioSource.volume = engineVolume;
+
 
         // Rotation control
         if (rotation == 0) {

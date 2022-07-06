@@ -9,6 +9,13 @@ public class MainSceneUI : MonoBehaviour
 
     public void Menu_Play() {
         Menu.SetActive(false);
+        Levels.SetActive(false);
+        Scenes.OpenScene("Level One");
+    }
+
+    public void Level_Selector()
+    {
+        Menu.SetActive(false);
         Levels.SetActive(true);
     }
 
@@ -24,16 +31,12 @@ public class MainSceneUI : MonoBehaviour
 
     public void Levels_Lv2()
     {
-        Menu.SetActive(false);
-        Levels.SetActive(false);
-        Scenes.OpenScene("Ford Sample Level");
+        Debug.Log("Disabled for now");
     }
 
     public void Levels_Lv3()
     {
-        Menu.SetActive(false);
-        Levels.SetActive(false);
-        Scenes.OpenScene("Sample Level");
+        Debug.Log("Disabled for now");
     }
 
     public void Levels_Back() {
