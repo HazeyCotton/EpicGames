@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameStarter : MonoBehaviour
 {
-    public void StartGame ()
+    public void StartGame()
     {
         SceneManager.LoadScene("Level One");
-        Time.timeScale = 1f; 
+        Time.timeScale = 1f;
     }
 }

@@ -7,7 +7,8 @@ public class MainSceneUI : MonoBehaviour
     public GameObject Menu;
     public GameObject Levels;
 
-    public void Menu_Play() {
+    public void Menu_Play()
+    {
         Menu.SetActive(false);
         Levels.SetActive(false);
         Scenes.OpenScene("Level One");
@@ -19,11 +20,13 @@ public class MainSceneUI : MonoBehaviour
         Levels.SetActive(true);
     }
 
-    public void Menu_Quit() {
+    public void Menu_Quit()
+    {
         Application.Quit();
     }
 
-    public void Levels_Lv1() {
+    public void Levels_Lv1()
+    {
         Menu.SetActive(false);
         Levels.SetActive(false);
         Scenes.OpenScene("Level One");
@@ -39,7 +42,8 @@ public class MainSceneUI : MonoBehaviour
         Debug.Log("Disabled for now");
     }
 
-    public void Levels_Back() {
+    public void Levels_Back()
+    {
         Menu.SetActive(true);
         Levels.SetActive(false);
     }
