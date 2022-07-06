@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameStarter : MonoBehaviour
 {
-    public void StartGame ()
+    public void StartGame()
     {
-        SceneManager.LoadScene("Ford Sample Level");
-        Time.timeScale = 1f; 
+        SceneManager.LoadScene("Level One");
+        Time.timeScale = 1f;
     }
 }

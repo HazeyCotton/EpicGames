@@ -5,13 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class KillLogic : MonoBehaviour
 {
-    void OnTriggerEnter(Collider c) 
+    void OnTriggerEnter(Collider c)
     {
-        if (c.attachedRigidbody != null) {
+        if (c.attachedRigidbody != null)
+        {
             PlayerController pc = c.attachedRigidbody.gameObject.GetComponent<PlayerController>();
             Rigidbody rb = c.attachedRigidbody.gameObject.GetComponent<Rigidbody>();
-            if (pc != null && rb != null) 
+            if (pc != null && rb != null)
             {
+                FindObjectOfType<AudioManager>().Play("PlayerDeath");
+
                 pc.transform.position = pc._lastCheckpointPos;
 
                 pc.deathCount++;
@@ -21,12 +24,12 @@ public class KillLogic : MonoBehaviour
                 if (pc.deathCount >= 3)
                 {
                     SceneManager.LoadScene("StartScreen");
-                    Time.timeScale = 1f; 
+                    Time.timeScale = 1f;
                 }
 
-            } 
+            }
         }
-        
-        
+
+
     }
 }
