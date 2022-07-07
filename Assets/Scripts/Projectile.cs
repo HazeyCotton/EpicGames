@@ -7,7 +7,7 @@ public class Projectile : MonoBehaviour
 {
     public Rigidbody rbody {get; private set;}
 
-    public ShootingRange mgr;
+    public ProjectileThrower mgr;
 
     void Awake()
     {
@@ -33,14 +33,7 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //AcceptHit();
-
-        if (collision.gameObject.tag == "KillBarrier")
-        {
-            this.gameObject.SetActive(false);
-        }
-
-        mgr.RecieveMiss();
+        AcceptHit();
     }
 
 }

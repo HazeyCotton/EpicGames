@@ -4,7 +4,7 @@ using UnityEngine;
 
 using TMPro;
 
-public class ShootingRange : MonoBehaviour
+public class ProjectileThrower : MonoBehaviour
 {
 
     int ProjectilePoolSize = 40;
@@ -27,10 +27,6 @@ public class ShootingRange : MonoBehaviour
 
     public float ShotSpeed = 20f;
     float OrigShotSpeed = 20f;
-
-    int hits = 0;
-    int misses = 0;
-
 
     //public GameObject LaunchSpotIndicator;
 
@@ -90,19 +86,6 @@ public class ShootingRange : MonoBehaviour
     }
 
 
-
-
-    public void RecieveHit()
-    {
-        ++hits;
-    }
-
-    public void RecieveMiss()
-    {
-        ++misses;
-    }
-
-
     public void Recycle(Projectile p)
     {
         ProjectilePool.Add(p);
@@ -125,9 +108,9 @@ public class ShootingRange : MonoBehaviour
 
         r *= Time.deltaTime * LaunchHeightRandomAccel;
 
-        launcherVel = Mathf.Clamp(launcherVel + r, -MaxAbsLauncherHeightChangeVel, MaxAbsLauncherHeightChangeVel);
+        //launcherVel = Mathf.Clamp(launcherVel + r, -MaxAbsLauncherHeightChangeVel, MaxAbsLauncherHeightChangeVel);
 
-        h += launcherVel;
+        //h += launcherVel;
 
         h = Mathf.Clamp(h, LaunchHeightRange.x, LaunchHeightRange.y);
 
@@ -138,7 +121,7 @@ public class ShootingRange : MonoBehaviour
 
         //LaunchSpotIndicator.transform.position = LaunchPos;
 
-        if (ProjectilePool.Count > 0 && Time.timeSinceLevelLoad > (LastShotTime + CoolOffTime))
+        if (ProjectilePool.Count > 0 && (Time.timeSinceLevelLoad > (LastShotTime + CoolOffTime)))
         {
             
             // Calc the shot trajectory, if possible
@@ -178,6 +161,10 @@ public class ShootingRange : MonoBehaviour
                 p.rbody.AddForce(throwVec, ForceMode.VelocityChange);
 
                 LastShotTime = Time.timeSinceLevelLoad;
+                Debug.Log("here");
+                Debug.Log(Time.timeSinceLevelLoad);
+                Debug.Log(LastShotTime);
+                Debug.Log(LastShotTime + CoolOffTime);
             
             }
 

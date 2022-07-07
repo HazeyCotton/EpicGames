@@ -134,7 +134,6 @@ public class PlayerController : MonoBehaviour
         else if (other.gameObject.CompareTag("Coin"))
         {
             //other.gameObject.SetActive(false);
-            points++;
         }
         
     }

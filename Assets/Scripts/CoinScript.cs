@@ -18,13 +18,21 @@ public class CoinScript: MonoBehaviour
     private bool goingUp;
     private float initPosY;
 
+    // Making bool for if the object has been picked up so it doesn't double count
+    public bool pickedUp;
+
     private bool pickupAnimStart;
     private Vector3 travelDist;
 
     private GameObject player;
+    public int NUM_FRAMES_BEFORE_DELETE;
+
+    private int delFrameCounter;
 
     void Start()
     {
+        delFrameCounter = 0;
+        pickedUp = false;
         initPosY = transform.position.y;
         spinRate = 3f;
         xRot = 45f;
@@ -32,7 +40,7 @@ public class CoinScript: MonoBehaviour
         bounceRate = 0.5f;
         bounceLimit = 0.5f;
         bounceHeight = initPosY;
-
+        NUM_FRAMES_BEFORE_DELETE = 15;
         pickupAnimStart = false;
     }
     // Update is called once per frame
@@ -40,12 +48,13 @@ public class CoinScript: MonoBehaviour
     {
         if (pickupAnimStart)
         {
-            transform.localScale = transform.localScale * .99f;
-            travelDist = Vector3.Lerp(gameObject.transform.parent.gameObject.transform.position, player.transform.position, 0.01f);
+            delFrameCounter++;
+            transform.localScale = transform.localScale * .95f;
+            travelDist = ((4*gameObject.transform.parent.gameObject.transform.position) +  player.transform.position)/5;
             spinRate = 20f;
             
             //Debug.Log(Vector3.Distance(transform.position, travelDist));
-            if(Vector3.Distance(transform.position, travelDist) < 0.07f) 
+            if(delFrameCounter > NUM_FRAMES_BEFORE_DELETE) 
             {
                 pickupAnimStart = false;
                 gameObject.SetActive(false);
@@ -79,6 +88,10 @@ public class CoinScript: MonoBehaviour
         // If we collide with something other than a player return
         if (!c.gameObject.CompareTag("Player")){return;}
         player = c.gameObject;
+        if (!pickedUp) {
+            player.GetComponent<PlayerController>().points++;
+        }
+        pickedUp = true;
         pickupAnimStart = true;
         
     }
