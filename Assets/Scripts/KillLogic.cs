@@ -9,6 +9,11 @@ public class KillLogic : MonoBehaviour
     {
         if (c.attachedRigidbody != null)
         {
+            if (c.gameObject.tag == "Projectile") 
+            {
+                c.gameObject.SetActive(false);
+                return;
+            }
             PlayerController pc = c.attachedRigidbody.gameObject.GetComponent<PlayerController>();
             Rigidbody rb = c.attachedRigidbody.gameObject.GetComponent<Rigidbody>();
             if (pc != null && rb != null)
