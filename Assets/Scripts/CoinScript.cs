@@ -44,7 +44,7 @@ public class CoinScript: MonoBehaviour
             travelDist = Vector3.Lerp(gameObject.transform.parent.gameObject.transform.position, player.transform.position, 0.01f);
             spinRate = 20f;
             
-            Debug.Log(Vector3.Distance(transform.position, travelDist));
+            //Debug.Log(Vector3.Distance(transform.position, travelDist));
             if(Vector3.Distance(transform.position, travelDist) < 0.07f) 
             {
                 pickupAnimStart = false;
