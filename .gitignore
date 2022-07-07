@@ -6,3 +6,5 @@ EpicGames.sln
 Library/
 Logs/
 Temp/UnityLockfile
+Temp/
+UserSettings/
