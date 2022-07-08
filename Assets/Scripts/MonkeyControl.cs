@@ -50,7 +50,7 @@ public class MonkeyControl : MonoBehaviour
         
         transform.rotation = Quaternion.Euler(
             ctrl.GetRotation().x / Mathf.PI * 180, 
-            ctrl.GetRotation().y / Mathf.PI * 180, 
+            ctrl.GetRotation().y / Mathf.PI * 180,
             ctrl.GetRotation().z / Mathf.PI * 180);
     }
 }

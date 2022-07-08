@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject finishLabelObject;
 
+    public GameObject Fox;
+
     private float propulsion;
     private float propulsionSum;
     private float rotation;
@@ -132,10 +134,7 @@ public class PlayerController : MonoBehaviour
             finishLabelObject.SetActive(true);
             reachedFlag = true;
         }
-        else if (other.gameObject.CompareTag("Coin"))
-        {
-            //other.gameObject.SetActive(false);
-        }
+
         
     }
 
@@ -203,13 +202,13 @@ public class PlayerController : MonoBehaviour
 
         Vector3 direction = (target - transform.position).normalized;
         Debug.Log(direction);
-        //Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));    // flattens the vector3
-        Quaternion lookRotation = Quaternion.FromToRotation(Vector3.zero, direction);
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));    // flattens the vector3
+        //Quaternion lookRotation = Quaternion.FromToRotation(Vector3.zero, direction);
         //var canRot = TurnToFaceSpeedDegPerSec * Time.fixedDeltaTime;// Time.deltaTime;
-        //transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, canRot); //will be clamped if overshoots
+        
         Debug.Log(lookRotation);
         rb.MoveRotation(lookRotation); //will be clamped if overshoots)
-        rotationSum = new Vector3(lookRotation.x, lookRotation.y, lookRotation.z);
+        rotationSum = lookRotation.eulerAngles ;
     }
 
  
