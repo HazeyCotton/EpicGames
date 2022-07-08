@@ -9,8 +9,17 @@ public class Projectile : MonoBehaviour
 
     public ProjectileThrower mgr;
 
+    private int delFrameCounter;
+
+    private bool collided;
+
+    public int despawnTimeInFrames;
+
     void Awake()
     {
+        collided = false;
+        delFrameCounter = 0;
+
         rbody = GetComponent<Rigidbody>();
 
         if(rbody == null)
@@ -22,12 +31,31 @@ public class Projectile : MonoBehaviour
     public void AcceptHit()
     {
         //Debug.Log("Collision");
+        collided = true;
+        
+    }
 
-        this.gameObject.SetActive(false);
+    void OnEnable()
+    {
+        collided = false;
+        delFrameCounter = 0;
+    }
 
-        if (mgr != null)
+    void FixedUpdate()
+    {
+        if (collided) 
         {
-            mgr.Recycle(this);
+            delFrameCounter++;
+            if (delFrameCounter > despawnTimeInFrames)
+            {
+                this.gameObject.SetActive(false);
+
+                if (mgr != null)
+                {
+                    mgr.Recycle(this);
+                }
+            }
+
         }
     }
 
