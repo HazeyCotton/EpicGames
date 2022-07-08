@@ -161,10 +161,6 @@ public class ProjectileThrower : MonoBehaviour
                 p.rbody.AddForce(throwVec, ForceMode.VelocityChange);
 
                 LastShotTime = Time.timeSinceLevelLoad;
-                Debug.Log("here");
-                Debug.Log(Time.timeSinceLevelLoad);
-                Debug.Log(LastShotTime);
-                Debug.Log(LastShotTime + CoolOffTime);
             
             }
 
