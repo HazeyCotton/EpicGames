@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     private bool reachedFlag;
 
     public Vector3 _lastCheckpointPos;
+    public Quaternion _lastCheckpointRot;
 
     public int deathCount;
 
@@ -173,6 +174,42 @@ public class PlayerController : MonoBehaviour
 
     public Vector3 GetRotation() {
         return rotationSum;
+    }
+
+    public void turnToTarget(Vector3 targetPos)
+    {
+        var targetPos2d = new Vector2(targetPos.x + 10f, targetPos.z);
+        var minionPos2d = new Vector2(rb.transform.position.x, rb.transform.position.z);
+
+        var minionToTarget2d = targetPos2d - minionPos2d;
+
+        float distMinionFromTarget = minionToTarget2d.magnitude;
+
+        var angle = Mathf.Atan2(0f, distMinionFromTarget);
+
+        //Debug.Log($"Rotating by {angle * Mathf.Rad2Deg} degrees");
+
+        float sin = Mathf.Sin(angle);
+        float cos = Mathf.Cos(angle);
+
+        // Rotate
+        var newMinionToTarget2d = new Vector2(
+            minionToTarget2d.x * cos - minionToTarget2d.y * sin,
+            minionToTarget2d.x * sin + minionToTarget2d.y * cos);
+
+        var adjTarg = new Vector3(minionPos2d.x + newMinionToTarget2d.x, targetPos.y, minionPos2d.y + newMinionToTarget2d.y);
+
+        var target = adjTarg;
+
+        Vector3 direction = (target - transform.position).normalized;
+        Debug.Log(direction);
+        //Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));    // flattens the vector3
+        Quaternion lookRotation = Quaternion.FromToRotation(Vector3.zero, direction);
+        //var canRot = TurnToFaceSpeedDegPerSec * Time.fixedDeltaTime;// Time.deltaTime;
+        //transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, canRot); //will be clamped if overshoots
+        Debug.Log(lookRotation);
+        rb.MoveRotation(lookRotation); //will be clamped if overshoots)
+        rotationSum = new Vector3(lookRotation.x, lookRotation.y, lookRotation.z);
     }
 
  

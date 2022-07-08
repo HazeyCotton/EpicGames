@@ -157,3 +157,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mgr: {fileID: 0}
+  despawnTimeInFrames: 180
