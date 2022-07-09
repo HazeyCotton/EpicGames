@@ -45,12 +45,12 @@ public class PlayerController : MonoBehaviour
          _lastCheckpointLookAt = new Vector3(this.transform.position.x +(5f * Mathf.Sin(this.transform.rotation.y/180f*Mathf.PI)),
                                         this.transform.position.y,
                                             this.transform.position.z +(5f * Mathf.Cos(this.transform.rotation.y/180f*Mathf.PI))); 
-        Debug.Log(this.gameObject.transform.position);
+       /* Debug.Log(this.gameObject.transform.position);
         Debug.Log(_lastCheckpointLookAt);
         Debug.Log(this.transform.rotation.y);
         Debug.Log(5f * Mathf.Cos(this.transform.rotation.y/180f*Mathf.PI));
-        Debug.Log(5f * Mathf.Sin(this.transform.rotation.y/180f*Mathf.PI));
-        //Debug.Log();
+        Debug.Log(5f * Mathf.Sin(this.transform.rotation.y/180f*Mathf.PI));*/
+
 
     }
     void Awake()

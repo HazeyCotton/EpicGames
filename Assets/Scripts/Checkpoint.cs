@@ -10,11 +10,15 @@ public class Checkpoint : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lookAtPosition = new Vector3(this.transform.position.x +(5f * Mathf.Cos(this.transform.rotation.y)),
+        lookAtPosition = new Vector3(this.transform.position.x +(Mathf.Cos(this.transform.rotation.eulerAngles.y/180f*Mathf.PI)),
                                         this.transform.position.y,
-                                            this.transform.position.z +(5f * Mathf.Sin(this.transform.rotation.y)));   
-        //Debug.Log(this.gameObject.transform.position);
-        //Debug.Log(lookAtPosition);
+                                            this.transform.position.z - (Mathf.Sin(this.transform.rotation.eulerAngles.y/180f*Mathf.PI)));   
+        /*
+        Debug.Log(this.gameObject.transform.position);
+        Debug.Log(lookAtPosition);
+        Debug.Log(this.transform.rotation.eulerAngles.y);
+        Debug.Log(5f * Mathf.Cos(this.transform.rotation.eulerAngles.y/180f*Mathf.PI));
+        Debug.Log(5f * Mathf.Sin(this.transform.rotation.eulerAngles.y/180f*Mathf.PI));*/
     }
 
     // Update is called once per frame

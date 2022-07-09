@@ -23,7 +23,7 @@ public class KillLogic : MonoBehaviour
                 rb.Sleep();
                 pc.transform.position = pc._lastCheckpointPos;
                 
-                //pc.deathCount++;
+                pc.deathCount++;
 
                 rb.velocity = Vector3.zero;
 
