@@ -27,7 +27,7 @@ public class KillLogic : MonoBehaviour
 
                 rb.velocity = Vector3.zero;
 
-                pc.turnToTarget(pc._lastCheckpointPos);
+                pc.turnToTarget(pc._lastCheckpointLookAt);
                 rb.WakeUp();
 
                 if (pc.deathCount >= 3)
