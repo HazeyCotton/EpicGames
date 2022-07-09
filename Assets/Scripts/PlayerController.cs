@@ -22,8 +22,6 @@ public class PlayerController : MonoBehaviour
 
     public GameObject finishLabelObject;
 
-    public GameObject Fox;
-
     private float propulsion;
     private float propulsionSum;
     private float rotation;
@@ -34,7 +32,7 @@ public class PlayerController : MonoBehaviour
     private bool reachedFlag;
 
     public Vector3 _lastCheckpointPos;
-    public Quaternion _lastCheckpointRot;
+    public Vector3 _lastCheckpointLookAt;
 
     public int deathCount;
 
@@ -42,6 +40,19 @@ public class PlayerController : MonoBehaviour
     float engineVolume;
     float oldPropulsion;
 
+    void Start()
+    {
+         _lastCheckpointLookAt = new Vector3(this.transform.position.x +(5f * Mathf.Sin(this.transform.rotation.y/180f*Mathf.PI)),
+                                        this.transform.position.y,
+                                            this.transform.position.z +(5f * Mathf.Cos(this.transform.rotation.y/180f*Mathf.PI))); 
+        Debug.Log(this.gameObject.transform.position);
+        Debug.Log(_lastCheckpointLookAt);
+        Debug.Log(this.transform.rotation.y);
+        Debug.Log(5f * Mathf.Cos(this.transform.rotation.y/180f*Mathf.PI));
+        Debug.Log(5f * Mathf.Sin(this.transform.rotation.y/180f*Mathf.PI));
+        //Debug.Log();
+
+    }
     void Awake()
     {
         engineVolume = 0f;
@@ -49,7 +60,7 @@ public class PlayerController : MonoBehaviour
 
 
         _lastCheckpointPos = transform.position;
-
+       
         rb = GetComponent<Rigidbody>();
 
         propulsion = 0;
@@ -177,7 +188,8 @@ public class PlayerController : MonoBehaviour
 
     public void turnToTarget(Vector3 targetPos)
     {
-        var targetPos2d = new Vector2(targetPos.x + 10f, targetPos.z);
+        //Debug.Log(targetPos);
+        var targetPos2d = new Vector2(targetPos.x, targetPos.z);
         var minionPos2d = new Vector2(rb.transform.position.x, rb.transform.position.z);
 
         var minionToTarget2d = targetPos2d - minionPos2d;
@@ -201,14 +213,14 @@ public class PlayerController : MonoBehaviour
         var target = adjTarg;
 
         Vector3 direction = (target - transform.position).normalized;
-        Debug.Log(direction);
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));    // flattens the vector3
-        //Quaternion lookRotation = Quaternion.FromToRotation(Vector3.zero, direction);
-        //var canRot = TurnToFaceSpeedDegPerSec * Time.fixedDeltaTime;// Time.deltaTime;
         
-        Debug.Log(lookRotation);
-        rb.MoveRotation(lookRotation); //will be clamped if overshoots)
-        rotationSum = lookRotation.eulerAngles ;
+        //Debug.Log(target);
+       // Debug.Log(this.gameObject.transform.position);
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));    // flattens the vector3
+     
+        rb.MoveRotation(lookRotation);
+        rotationSum = (lookRotation.eulerAngles/180f*Mathf.PI);
+        //Debug.Log(rotationSum);
     }
 
  

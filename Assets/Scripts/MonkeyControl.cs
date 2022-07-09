@@ -46,11 +46,11 @@ public class MonkeyControl : MonoBehaviour
         anim.SetFloat("velx", _inputTurn);
         anim.SetFloat("vely", _inputForward);
 
-        //transform.position = new Vector3(player.transform.position.x, player.transform.position.y - 0.6f, player.transform.position.z);
         
+        Vector3 rotControl = ctrl.GetRotation();
         transform.rotation = Quaternion.Euler(
-            ctrl.GetRotation().x / Mathf.PI * 180, 
-            ctrl.GetRotation().y / Mathf.PI * 180,
-            ctrl.GetRotation().z / Mathf.PI * 180);
+            rotControl.x / Mathf.PI * 180, 
+            rotControl.y / Mathf.PI * 180,
+            rotControl.z / Mathf.PI * 180);
     }
 }
