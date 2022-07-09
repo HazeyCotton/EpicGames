@@ -16,7 +16,7 @@ public class KillLogic : MonoBehaviour
             }
             PlayerController pc = c.attachedRigidbody.gameObject.GetComponent<PlayerController>();
             Rigidbody rb = c.attachedRigidbody.gameObject.GetComponent<Rigidbody>();
-            if (pc != null && rb != null)
+            if (c.gameObject.tag == "Player" && rb != null)
             {
                 FindObjectOfType<AudioManager>().Play("PlayerDeath");
 
