@@ -11,20 +11,24 @@ public class KillLogic : MonoBehaviour
         {
             if (c.gameObject.tag == "Projectile") 
             {
-                c.gameObject.SetActive(false);
+                c.gameObject.transform.parent.gameObject.GetComponent<Projectile>().AcceptHit();
                 return;
             }
             PlayerController pc = c.attachedRigidbody.gameObject.GetComponent<PlayerController>();
             Rigidbody rb = c.attachedRigidbody.gameObject.GetComponent<Rigidbody>();
-            if (pc != null && rb != null)
+            if (c.gameObject.tag == "Player" && rb != null)
             {
                 FindObjectOfType<AudioManager>().Play("PlayerDeath");
 
+                rb.Sleep();
                 pc.transform.position = pc._lastCheckpointPos;
-
+                
                 pc.deathCount++;
 
                 rb.velocity = Vector3.zero;
+
+                pc.turnToTarget(pc._lastCheckpointLookAt);
+                rb.WakeUp();
 
                 if (pc.deathCount >= 3)
                 {

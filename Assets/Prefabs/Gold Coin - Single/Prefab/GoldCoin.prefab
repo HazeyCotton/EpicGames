@@ -145,3 +145,5 @@ MonoBehaviour:
   zRot: 0
   bounceRate: 0
   bounceLimit: 0
+  pickedUp: 0
+  NUM_FRAMES_BEFORE_DELETE: 0
