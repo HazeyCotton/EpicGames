@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6761994289266970904}
   - component: {fileID: 6761994289266970905}
+  - component: {fileID: 3098327849455233567}
   m_Layer: 0
   m_Name: T-Spinner
-  m_TagString: Untagged
+  m_TagString: ObstacleOrRailing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,13 +41,27 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6761994289266970902}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd121c4bca7914529be3ddbe283e3956, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationRate: 1
   clockwise: 1
+  obType: 0
+--- !u!114 &3098327849455233567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6761994289266970902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771e1a696d5c148cfbecc6d2d966c8ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clockwise: 0
+  obType: 0
 --- !u!1 &6761994289325645442
 GameObject:
   m_ObjectHideFlags: 0

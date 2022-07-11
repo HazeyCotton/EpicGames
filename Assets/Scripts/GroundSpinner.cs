@@ -5,8 +5,15 @@ using UnityEngine;
 public class GroundSpinner : MonoBehaviour
 {
 
-    public float rotationRate;
+    private float rotationRate;
     public bool clockwise;
+
+    public enum ObstacleType {
+        GroundSpinner,
+        Windmill
+    }
+
+    public ObstacleType obType;
 
     // Start is called before the first frame update
     void Start()
@@ -17,11 +24,31 @@ public class GroundSpinner : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (clockwise)
+        switch(obType)
         {
-            transform.Rotate(0,rotationRate,0);
-        } else {
-            transform.Rotate(0,-rotationRate,0);
+            case ObstacleType.GroundSpinner:
+                if (clockwise)
+                {
+                    transform.Rotate(0,rotationRate,0);
+                } else {
+                    transform.Rotate(0,-rotationRate,0);
+                }
+
+                break;
+
+            case ObstacleType.Windmill:
+                if (clockwise)
+                {
+                    transform.Rotate(rotationRate,0,0);
+                } else {
+                    transform.Rotate(-rotationRate,0,0);
+                }
+                break;
         }
+    }
+
+    void setRotationRate(float newRotationRate)
+    {
+        rotationRate = newRotationRate;
     }
 }

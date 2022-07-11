@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 1433082503675865591}
   m_Layer: 0
   m_Name: PendulumTest
-  m_TagString: Untagged
+  m_TagString: ObstacleOrRailing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -251,7 +251,7 @@ Animator:
   m_GameObject: {fileID: 1433082503675865588}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d5cda7457be87f04ebdc6b7223410691, type: 2}
+  m_Controller: {fileID: 9100000, guid: e0f525554c209f44a92df872cda5b1be, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
