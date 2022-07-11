@@ -23,5 +23,11 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Sample Level.unity
     guid: 861b6c51b2aa54cf1ba8a70b48902fc2
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: 9f079c1376a18e942a4cc13eb25587b9
+  - enabled: 1
+    path: Assets/Scenes/LoseScene.unity
+    guid: 8dbbde934ae1ef940857dc823adc6c9d
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: a281949cca394e247a6d13b3028793a9, type: 2}

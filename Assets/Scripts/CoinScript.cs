@@ -89,7 +89,8 @@ public class CoinScript: MonoBehaviour
         if (!c.gameObject.CompareTag("Player")){return;}
         player = c.gameObject;
         if (!pickedUp) {
-            player.GetComponent<PlayerController>().points++;
+            // player.GetComponent<PlayerController>().points++;
+            PlayerController.points = PlayerController.points + 1;
         }
         pickedUp = true;
         pickupAnimStart = true;
