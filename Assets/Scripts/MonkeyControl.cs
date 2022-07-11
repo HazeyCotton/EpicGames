@@ -55,9 +55,9 @@ public class MonkeyControl : MonoBehaviour
             rotControl.y / Mathf.PI * 180,
             rotControl.z / Mathf.PI * 180);
 
-        transform.position = new Vector3(this.transform.parent.gameObject.transform.position.x + (0.1f * (Mathf.Sin(this.transform.rotation.eulerAngles.y/180f*Mathf.PI))),
-                                        this.transform.parent.gameObject.transform.position.y - 0.4f,
-                                            this.transform.parent.gameObject.transform.position.z + (0.1f*(Mathf.Cos(this.transform.rotation.eulerAngles.y/180f*Mathf.PI))));   
+        transform.position = new Vector3(this.transform.parent.gameObject.transform.position.x + (0.15f * (Mathf.Sin(this.transform.rotation.eulerAngles.y/180f*Mathf.PI))),
+                                        this.transform.parent.gameObject.transform.position.y - 0.45f,
+                                            this.transform.parent.gameObject.transform.position.z + (0.15f*(Mathf.Cos(this.transform.rotation.eulerAngles.y/180f*Mathf.PI))));   
         
     }
 }
