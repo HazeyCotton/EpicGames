@@ -111,7 +111,7 @@ Material:
     - _DstBlend: 0
     - _EmissiveIntensity: 1
     - _EnvironmentReflections: 1
-    - _Fade: 0.619
+    - _Fade: 0.284
     - _FalloffFade: 0
     - _FalloffFade1: 0
     - _FalloffOpacity: 0
@@ -122,7 +122,7 @@ Material:
     - _GlossinessDecal: 0.5
     - _GlossyReflections: 0
     - _GradientFade: 1
-    - _Intensity: 2.42
+    - _Intensity: 1.57
     - _Invert: 0
     - _InvertAlbedoA1: 0
     - _InvertFresnelFade: 0
@@ -139,7 +139,7 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _ReflectionDecal: 0
-    - _ReflectionIntensity: 1
+    - _ReflectionIntensity: 0
     - _Refraction: 1
     - _Rotation: 0
     - _Saturation: 0
