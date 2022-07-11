@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class PlayerController : MonoBehaviour
     public float rotationDeceleration = 0.1f;
     public float maxVerticalTilt = 0.15f;
     public float maxHorizontalTilt = 0.3f;
-    public int points = 0;
+    public static int points = 0;
 
     public TextMeshProUGUI timerLabel;
     public TextMeshProUGUI livesLabel;
@@ -28,7 +29,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 rotationSum;
 
     private Rigidbody rb;
-    private float time;
+    public static float time;
     private bool reachedFlag;
 
     public Vector3 _lastCheckpointPos;
@@ -144,6 +145,13 @@ public class PlayerController : MonoBehaviour
         {
             finishLabelObject.SetActive(true);
             reachedFlag = true;
+             SceneManager.LoadScene("WinScene");
+            
+        }
+        else if (other.gameObject.CompareTag("Coin"))
+        {
+            other.gameObject.SetActive(false);
+            points++;
         }
 
         
@@ -172,6 +180,10 @@ public class PlayerController : MonoBehaviour
             livesLabel.text = lives.ToString() + " Lives Left";
         } else {
             livesLabel.text = lives.ToString() + " Life Left";
+        }
+
+        if (lives == 0) {
+             SceneManager.LoadScene("LoseScene");
         }
     }
 
