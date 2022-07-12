@@ -2,8 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotationPieceHandler : MonoBehaviour
+public class RotationPieceHandler : MonoBehaviour, IObstacle
 {
+
+    public float animationSpeed
+    {
+        get;
+        set;
+    }
+
     public WalkOutRotator[] rotationPieces;
     int numPieces;
     // Start is called before the first frame update
@@ -17,19 +24,22 @@ public class RotationPieceHandler : MonoBehaviour
 
     private bool goingOut;
 
+
+
     void Start()
-    {
-        
+    { 
+        animationSpeed = 1f;
         goingOut = false;
         numPieces = rotationPieces.Length;
         currPiece = numPieces -1;
-        Debug.Log(numPieces);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(Time.timeSinceLevelLoad > (LastRotationTime + CoolOffTime))
+        float adjustedCooloff = CoolOffTime - (animationSpeed -1f);
+        //Debug.Log(animationSpeed);
+        if(Time.timeSinceLevelLoad > (LastRotationTime + adjustedCooloff))
         {
             LastRotationTime = Time.timeSinceLevelLoad;
 

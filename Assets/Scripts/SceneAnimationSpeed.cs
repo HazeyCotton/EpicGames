@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq; 
 
 public class SceneAnimationSpeed : MonoBehaviour
 {
@@ -17,7 +18,11 @@ public class SceneAnimationSpeed : MonoBehaviour
 
         movingObstacles = GameObject.FindGameObjectsWithTag("ObstacleOrRailing");
 
-        if (movingObstacles.Length == 0)
+        var ss = FindObjectsOfType<MonoBehaviour>().OfType<IObstacle>();
+
+        Debug.Log(ss.Count());
+
+        if (ss.Count() == 0)
         {
             Debug.Log("No game objects are tagged with ObstacleOrRailing");
         }
@@ -38,6 +43,7 @@ public class SceneAnimationSpeed : MonoBehaviour
         // Therefore slightly ineefecient but will have good error handling
         foreach (GameObject obj in movingObstacles)
         {
+            
             SimpleObstacleController cont = obj.GetComponent<SimpleObstacleController>();
             if (cont != null)
             {
@@ -51,7 +57,12 @@ public class SceneAnimationSpeed : MonoBehaviour
                 anim.speed = animationSpeed;
                 continue;
             }
-
         }
+        var ss = FindObjectsOfType<MonoBehaviour>().OfType<IObstacle>();
+            foreach (IObstacle obs in ss)
+            {
+                obs.animationSpeed = newSpeed;
+            }
+
     }
 }

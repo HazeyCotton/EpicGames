@@ -442,7 +442,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6200655546251692360}
   - component: {fileID: 6200655546251692367}
-  - component: {fileID: 4280429880719420211}
   m_Layer: 0
   m_Name: Windmill
   m_TagString: ObstacleOrRailing
@@ -475,24 +474,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6200655546251692366}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bde04785c30746dab096fecada204ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationRate: 0
   clockwise: 0
---- !u!114 &4280429880719420211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6200655546251692366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 771e1a696d5c148cfbecc6d2d966c8ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clockwise: 0
-  obType: 1
