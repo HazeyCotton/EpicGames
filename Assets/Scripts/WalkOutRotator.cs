@@ -39,9 +39,7 @@ public class WalkOutRotator : MonoBehaviour
             currRotation = Mathf.Clamp(currRotation + rotationAngle, -90f, 90f);
 
             Vector3 eulers = this.transform.localRotation.eulerAngles;
-            
 
-            Debug.Log(Mathf.Abs(currRotation));
             if (Mathf.Abs(currRotation)> 89.9f)
             {
                 isLocked = true;

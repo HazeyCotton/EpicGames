@@ -349,6 +349,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6924590198098616643}
     m_Modifications:
+    - target: {fileID: 1657220857223564322, guid: 97bebfc492b5d4a91853206a16075430, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4201986670137097001, guid: 97bebfc492b5d4a91853206a16075430, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -367,7 +371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4201986670741517908, guid: 97bebfc492b5d4a91853206a16075430, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4201986670741517911, guid: 97bebfc492b5d4a91853206a16075430, type: 3}
       propertyPath: m_RootOrder
@@ -507,6 +511,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6924590198098616643}
     m_Modifications:
+    - target: {fileID: 5644348252347606200, guid: e241e19b7afd3477696f095c055c9ca6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5644348252425071942, guid: e241e19b7afd3477696f095c055c9ca6, type: 3}
       propertyPath: m_Name
       value: PlayerSphereBetter
@@ -602,6 +610,10 @@ PrefabInstance:
     - target: {fileID: 5644348253635931243, guid: e241e19b7afd3477696f095c055c9ca6, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644348253635931253, guid: e241e19b7afd3477696f095c055c9ca6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5644348253788720005, guid: e241e19b7afd3477696f095c055c9ca6, type: 3}
       propertyPath: m_Mesh
