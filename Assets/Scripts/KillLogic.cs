@@ -5,6 +5,43 @@ using UnityEngine.SceneManagement;
 
 public class KillLogic : MonoBehaviour
 {
+    private int Dethklok = 0;
+    private bool Falling = false;
+
+    public Camera playerCam;
+
+    private PlayerController playerPC;
+    private Rigidbody playerRb;
+
+    void FixedUpdate()
+    {
+        if (Falling)
+        {
+            Dethklok++;
+            if (Dethklok > 30)
+            {
+                playerRb.Sleep();
+                playerPC.transform.position = playerPC._lastCheckpointPos;
+                
+                playerPC.deathCount++;
+
+                playerRb.velocity = Vector3.zero;
+
+                playerPC.turnToTarget(playerPC._lastCheckpointLookAt);
+                playerRb.WakeUp();
+
+                if (playerPC.deathCount >= 3)
+                {
+                    SceneManager.LoadScene("StartScreen");
+                    Time.timeScale = 1f;
+                }
+
+                Falling = false;
+                playerCam.GetComponent<CameraController>().Falling = false;
+            }
+        }
+    }
+
     void OnTriggerEnter(Collider c)
     {
         if (c.attachedRigidbody != null)
@@ -18,27 +55,18 @@ public class KillLogic : MonoBehaviour
             Rigidbody rb = c.attachedRigidbody.gameObject.GetComponent<Rigidbody>();
             if (c.gameObject.tag == "Player" && rb != null)
             {
+                playerPC = pc;
+                playerRb = rb;
+                Dethklok = 0;
                 FindObjectOfType<AudioManager>().Play("PlayerDeath");
-
-                rb.Sleep();
-                pc.transform.position = pc._lastCheckpointPos;
-                
-                pc.deathCount++;
-
-                rb.velocity = Vector3.zero;
-
-                pc.turnToTarget(pc._lastCheckpointLookAt);
-                rb.WakeUp();
-
-                if (pc.deathCount >= 3)
-                {
-                    SceneManager.LoadScene("StartScreen");
-                    Time.timeScale = 1f;
-                }
-
+                startDeathFall();
             }
         }
+    }
 
-
+    void startDeathFall()
+    {
+        Falling = true;
+        playerCam.GetComponent<CameraController>().Falling = true;
     }
 }
