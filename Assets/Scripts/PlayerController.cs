@@ -106,6 +106,7 @@ public class PlayerController : MonoBehaviour
         //audio stuff
         engineVolume = Mathf.Abs(propulsionSum / maxSpeed);
         audioSource.volume = engineVolume;
+        Debug.Log(engineVolume);
 
 
         // Rotation control

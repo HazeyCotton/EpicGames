@@ -14,20 +14,33 @@ public class CameraController : MonoBehaviour
     protected Quaternion quaternionDeriv;
 
     protected float angle;
+
+    public bool Falling = false;
     
 	void LateUpdate ()
 	{
-
+        
         if (desiredPose != null)
         {
-            transform.position = Vector3.SmoothDamp(transform.position, desiredPose.position, ref currentPositionCorrectionVelocity, positionSmoothTime, positionMaxSpeed, Time.deltaTime);
+            if(!Falling)
+            {
+                transform.position = Vector3.SmoothDamp(transform.position, desiredPose.position, ref currentPositionCorrectionVelocity, positionSmoothTime, positionMaxSpeed, Time.deltaTime);
 
-            var targForward = desiredPose.forward;
+                var targForward = desiredPose.forward;
 
-            var targetRotation = Quaternion.LookRotation(targForward, Vector3.up);
-            targetRotation = Quaternion.Euler(targetRotation.eulerAngles.x, targetRotation.eulerAngles.y, target.rotation.eulerAngles.z);
-            transform.rotation = QuaternionUtil.SmoothDamp(transform.rotation, targetRotation, ref quaternionDeriv, rotationSmoothTime);
+                var targetRotation = Quaternion.LookRotation(targForward, Vector3.up);
+                targetRotation = Quaternion.Euler(targetRotation.eulerAngles.x, targetRotation.eulerAngles.y, target.rotation.eulerAngles.z);
+                transform.rotation = QuaternionUtil.SmoothDamp(transform.rotation, targetRotation, ref quaternionDeriv, rotationSmoothTime);
+                
+            } else {
+                Vector3 _direction = (target.position - transform.position).normalized;
+ 
+            //create the rotation we need to be in to look at the target
+                Quaternion _lookRotation = Quaternion.LookRotation(_direction);
 
+                transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime );
+        
+            }
         }
     }
 }
