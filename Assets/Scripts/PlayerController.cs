@@ -149,11 +149,12 @@ public class PlayerController : MonoBehaviour
              SceneManager.LoadScene("WinScene");
             
         }
+        /*
         else if (other.gameObject.CompareTag("Coin"))
         {
             other.gameObject.SetActive(false);
             points++;
-        }
+        }*/
 
         
     }
