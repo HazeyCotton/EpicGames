@@ -40,7 +40,7 @@ public class CoinScript: MonoBehaviour
         bounceRate = 0.5f;
         bounceLimit = 0.5f;
         bounceHeight = initPosY;
-        NUM_FRAMES_BEFORE_DELETE = 15;
+        NUM_FRAMES_BEFORE_DELETE = 20;
         pickupAnimStart = false;
     }
     // Update is called once per frame
@@ -89,7 +89,6 @@ public class CoinScript: MonoBehaviour
         if (!c.gameObject.CompareTag("Player")){return;}
         player = c.gameObject;
         if (!pickedUp) {
-            // player.GetComponent<PlayerController>().points++;
             PlayerController.points = PlayerController.points + 1;
         }
         pickedUp = true;
