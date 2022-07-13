@@ -29,5 +29,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LoseScene.unity
     guid: 8dbbde934ae1ef940857dc823adc6c9d
+  - enabled: 1
+    path: Assets/Scenes/FordLevel_5.unity
+    guid: c434c0f4e2ebe4c21a06c0aee5a49e7e
+  - enabled: 1
+    path: Assets/Scenes/FordLevel_4.unity
+    guid: 51f4ceb942b5247979377f77eee80ce1
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: a281949cca394e247a6d13b3028793a9, type: 2}
