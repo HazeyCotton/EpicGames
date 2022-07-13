@@ -137,8 +137,8 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _TilingX: 0.1
-    - _TilingY: 0.1
+    - _TilingX: 0.01
+    - _TilingY: 0.01
     - _UVSec: 0
     - _UseAlbedoA1: 0
     - _UseCubemap: 1
