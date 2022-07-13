@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour
             rotationSum.z = rotationSum.z > 0 ? maxHorizontalTilt : -maxHorizontalTilt;
 
         // Apply force
-        rb.AddForce(new Vector3(Mathf.Sin(rotationSum.y), Physics.gravity.y/10, Mathf.Cos(rotationSum.y)) * propulsionSum * speed);
+        rb.AddForce(new Vector3(Mathf.Sin(rotationSum.y), 0f, Mathf.Cos(rotationSum.y)) * propulsionSum * speed);
 
         // Timer update
         if (!reachedFlag)
@@ -146,7 +146,17 @@ public class PlayerController : MonoBehaviour
         {
             finishLabelObject.SetActive(true);
             reachedFlag = true;
-             SceneManager.LoadScene("WinScene");
+            Scene scene = SceneManager.GetActiveScene();
+
+            if (scene.name == "Level One")
+            {
+                SceneManager.LoadScene("FordLevel_4");
+            } else if (scene.name == "FordLevel_4")
+            {
+                SceneManager.LoadScene("FordLevel_5");
+            } else if (scene.name == "FordLevel_5"){
+                SceneManager.LoadScene("WinScene");
+            }
             
         }
         /*

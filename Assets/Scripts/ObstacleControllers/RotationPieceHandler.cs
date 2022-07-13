@@ -24,12 +24,13 @@ public class RotationPieceHandler : MonoBehaviour, IObstacle
 
     private bool goingOut;
 
-
+    private bool waitCycle;
 
     void Start()
     { 
         animationSpeed = 1f;
         goingOut = false;
+        waitCycle = false;
         numPieces = rotationPieces.Length;
         currPiece = numPieces -1;
     }
@@ -42,7 +43,11 @@ public class RotationPieceHandler : MonoBehaviour, IObstacle
         if(Time.timeSinceLevelLoad > (LastRotationTime + adjustedCooloff))
         {
             LastRotationTime = Time.timeSinceLevelLoad;
-
+            if (waitCycle)
+            {
+                waitCycle = false;
+                return;
+            }
             // Rotate the current piece
             rotationPieces[currPiece].startRotation();
             if (goingOut)
@@ -52,6 +57,7 @@ public class RotationPieceHandler : MonoBehaviour, IObstacle
                     currPiece++;
                 } else {
                     goingOut = false;
+                    waitCycle = true;
                     return;
                 }
             } else {
