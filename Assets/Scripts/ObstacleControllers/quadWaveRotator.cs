@@ -33,9 +33,9 @@ public class quadWaveRotator : MonoBehaviour, IObstacle
     {
         if (clockwise)
         {
-            rotationAngle = (-0.6f * animationSpeed);
+            rotationAngle = (-0.7f * animationSpeed);
         } else {
-            rotationAngle = (0.6f * animationSpeed);
+            rotationAngle = (0.7f * animationSpeed);
         }
 
         // Increment the relative rotation angle

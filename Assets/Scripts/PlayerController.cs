@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour
             rotationSum.z = rotationSum.z > 0 ? maxHorizontalTilt : -maxHorizontalTilt;
 
         // Apply force
-        rb.AddForce(new Vector3(Mathf.Sin(rotationSum.y), 0.0f, Mathf.Cos(rotationSum.y)) * propulsionSum * speed);
+        rb.AddForce(new Vector3(Mathf.Sin(rotationSum.y), Physics.gravity.y/10, Mathf.Cos(rotationSum.y)) * propulsionSum * speed);
 
         // Timer update
         if (!reachedFlag)
