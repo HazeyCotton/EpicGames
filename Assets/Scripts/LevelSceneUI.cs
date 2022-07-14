@@ -25,6 +25,6 @@ public class LevelSceneUI : MonoBehaviour
     public void Pause_Leave() {
         Time.timeScale = 1f;
         Pause.SetActive(false);
-        Scenes.OpenScene("StartScreen");
+        Scenes.OpenScene("StartScreenB");
     }
 }
