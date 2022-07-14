@@ -14,7 +14,10 @@ public class levelSelector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        levelText.text = levelNum.ToString();
+        if (levelText != null)
+        {
+            levelText.text = levelNum.ToString();
+        }
     }
 
     // Update is called once per frame
@@ -23,6 +26,18 @@ public class levelSelector : MonoBehaviour
         try 
         {
             SceneManager.LoadScene("Level_" + levelNum.ToString());
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e, this);
+        }
+    }
+
+    public void backToHome()
+    {
+        try 
+        {
+            SceneManager.LoadScene("StartScreenB");
         }
         catch (Exception e)
         {
