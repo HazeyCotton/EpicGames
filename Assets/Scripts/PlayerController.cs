@@ -148,13 +148,13 @@ public class PlayerController : MonoBehaviour
             reachedFlag = true;
             Scene scene = SceneManager.GetActiveScene();
 
-            if (scene.name == "Level One")
+            if (scene.name == "Level_1")
             {
-                SceneManager.LoadScene("FordLevel_4");
-            } else if (scene.name == "FordLevel_4")
+                SceneManager.LoadScene("Level_4");
+            } else if (scene.name == "Level_4")
             {
-                SceneManager.LoadScene("FordLevel_5");
-            } else if (scene.name == "FordLevel_5"){
+                SceneManager.LoadScene("Level_5");
+            } else if (scene.name == "Level_5"){
                 SceneManager.LoadScene("WinScene");
             }
             
