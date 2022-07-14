@@ -13,6 +13,7 @@ public class Scenes : MonoBehaviour
     }
 
     public static void ReloadScene() {
-        SceneManager.LoadScene(currScene);
+        Scene scene = SceneManager.GetActiveScene(); 
+        SceneManager.LoadScene(scene.name);
     }
 }
