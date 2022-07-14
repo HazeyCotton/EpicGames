@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainSceneUI : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class MainSceneUI : MonoBehaviour
     {
         Menu.SetActive(false);
         Levels.SetActive(false);
-        Scenes.OpenScene("Level One");
+        Scenes.OpenScene("Level_1");
     }
 
     public void Level_Selector()
@@ -29,7 +30,7 @@ public class MainSceneUI : MonoBehaviour
     {
         Menu.SetActive(false);
         Levels.SetActive(false);
-        Scenes.OpenScene("Level One");
+        Scenes.OpenScene("Level_1");
     }
 
     public void Levels_Lv2()
@@ -46,5 +47,10 @@ public class MainSceneUI : MonoBehaviour
     {
         Menu.SetActive(true);
         Levels.SetActive(false);
+    }
+
+    public void goToLevelSelection()
+    {
+        SceneManager.LoadScene("LevelSelection");
     }
 }
