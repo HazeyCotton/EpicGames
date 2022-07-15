@@ -150,7 +150,10 @@ public class PlayerController : MonoBehaviour
 
             if (scene.name == "Level_1")
             {
+                SceneManager.LoadScene("Level_2");
+            } else if (scene.name == "Level_2") {
                 SceneManager.LoadScene("Level_3");
+
             } else if (scene.name == "Level_3")
             {
                 SceneManager.LoadScene("Level_4");
