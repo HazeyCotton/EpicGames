@@ -238,8 +238,8 @@ MonoBehaviour:
   maxSpeed: 1
   rotationSpeed: 2.5
   rotationDeceleration: 0.1
-  maxVerticalTilt: 0.3
-  maxHorizontalTilt: 0.6
+  maxVerticalTilt: 0.15
+  maxHorizontalTilt: 0.3
   timerLabel: {fileID: 0}
   livesLabel: {fileID: 0}
   scoreLabel: {fileID: 0}
