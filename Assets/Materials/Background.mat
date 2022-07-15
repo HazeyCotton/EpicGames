@@ -9,7 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Background
   m_Shader: {fileID: 4800000, guid: 4ae935bab0143fe4ab16d7e7f9a13579, type: 3}
-  m_ShaderKeywords: _ENVIRONMENTREFLECTIONS_OFF
+  m_ShaderKeywords: _ENVIRONMENTREFLECTIONS_OFF _METALLICSPECGLOSSMAP _NORMALMAP
+    _OCCLUSIONMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -28,7 +29,7 @@ Material:
         m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _CubeMap:
-        m_Texture: {fileID: 8900000, guid: bec33cb4566dc1f459d4235449574f22, type: 3}
+        m_Texture: {fileID: 8900000, guid: 14832eae71516154f93a4850a56f5068, type: 3}
         m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -137,8 +138,8 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _TilingX: 0.01
-    - _TilingY: 0.01
+    - _TilingX: 0.2
+    - _TilingY: 0.02
     - _UVSec: 0
     - _UseAlbedoA1: 0
     - _UseCubemap: 1
