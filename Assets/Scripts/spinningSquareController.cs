@@ -5,16 +5,37 @@ using UnityEngine;
 public class spinningSquareController : MonoBehaviour, IObstacle
 {
 
+    // Prefab used for the segments of the tube
     public spinningSquare spinningSquare2Prefab;
 
+    // number of squares in the tube
     public int numSquares;
 
+    // value we rotate at per frame
+    public float rotValue;
+
+    // initial z degree rotation offset at the beginning of spawn
+    public float initialOffset;
+
+    // get all the square segments we make to handle them all
     private GameObject[] squares;
 
+    // position in hsb color scale that the colors cycle through in the tube
     private int[] colorPosition;
 
+    // bool for whether were going to change color while playing
     public bool activeColorChange;
+
+    private bool[] rotationTracker;
+
+    private int squareCounter;
+
+    public float CoolOffTime = 0.05f;
+
+    float LastShotTime = 0f;
     
+    // Animation speed of the obstacle
+    // Applied in this obstacle by when we speed up the rotation rate increases
     public float animationSpeed
     {
         get;
@@ -26,7 +47,8 @@ public class spinningSquareController : MonoBehaviour, IObstacle
     {
         activeColorChange = false;
         animationSpeed = 1f;
-
+        rotValue = 3f;
+        initialOffset = 15f;
         squares = new GameObject[numSquares];
         colorPosition = new int[numSquares*4];
         for (int i = 0; i < (numSquares * 4); i++)
@@ -47,10 +69,11 @@ public class spinningSquareController : MonoBehaviour, IObstacle
 
             squares[x] = sqr.gameObject;
 
+
             squares[x].transform.localEulerAngles = new Vector3(
                 squares[x].transform.localEulerAngles.x,
                 squares[x].transform.localEulerAngles.y,
-                squares[x].transform.localEulerAngles.z +(x*3f));
+                squares[x].transform.localEulerAngles.z);// +(x*initialOffset));
 
         
         }
@@ -60,67 +83,45 @@ public class spinningSquareController : MonoBehaviour, IObstacle
     // Update is called once per frame
     void FixedUpdate()
     {
+
+        if ((Time.timeSinceLevelLoad > (LastShotTime + CoolOffTime))){
+            if (squareCounter < numSquares)
+            {
+                squares[squareCounter].gameObject.GetComponent<spinningSquare>().startRotating();
+
+                squareCounter++;
+
+                LastShotTime = Time.timeSinceLevelLoad;
+            } else {
+                squareCounter = 0;
+            }
+        }
+
+        /*
         for (int x = 0; x < numSquares; x++)
         {
-            
-            squares[x].transform.localEulerAngles = new Vector3(
-                squares[x].transform.localEulerAngles.x,
-                squares[x].transform.localEulerAngles.y,
-                squares[x].transform.localEulerAngles.z +1f);
 
-                
+            spinningSquare square2 = squares[x].gameObject.GetComponent<spinningSquare>();
 
-            //Get the Renderer component from the new cube
-            //var cubeRenderer = squares[x].gameObject.GetComponent<Renderer>();
+            square2.startRotating();
 
-            //Call SetColor using the shader property name "_Color" and setting the color to red
-            //cubeRenderer.material.SetColor("_Color", Color.red);
         
-        }
+        }*/
         if (activeColorChange) 
         {
             Renderer[] renderers = GetComponentsInChildren<Renderer>();
-            //foreach (var r in renderers)
             
             for (int x = 0; x < (numSquares*4); x++)
             {
-                
-
                 Renderer r = renderers[x];
-                //Call SetColor using the shader property name "_Color" and setting the color to red
-                //float lerp = Mathf.PingPong(Time.time, 1f) / 1f;
-                
-                //r.material.color = Color.HSVToRGB(colorPosition[x]/256f, 1f, 1f); 
-                r.material.color = Color.HSVToRGB(0.5f, 0.5f,0.5f); // color blue color
-                //r.material.color = getColorforIndex(colorPosition[x]);
+
+                r.material.color = Color.HSVToRGB(colorPosition[x]/256f, 1f, 1f); 
+                //r.material.color = Color.HSVToRGB(0.5f, 0.5f,0.5f); // color blue color
+
 
                 colorPosition[x] = (colorPosition[x] +1 ) % 255;
-                //r.material.SetColor("_Color", Color.red);
-                // Do something with the renderer here...
                 //r.enabled = false; // like disable it for example. 
             }
         }
     }
-    
-    Color getColorforIndex(int index)
-    {
-        //HSBColor.ToColor(new HSBColor( Mathf.PingPong(Time.time * Speed, 1), 1, 1)))
-
-        int cutoff = Mathf.FloorToInt(numSquares/7);
-
-        if (index < cutoff)
-        {
-            return Color.Lerp(Color.red, new Color(255f,0f,255), index/(numSquares*4));
-        } else if (index < cutoff*2) {
-            return Color.Lerp(new Color(255f,0f,255),Color.blue, index/(numSquares*4));
-        }else if (index < cutoff*3) {
-            return Color.Lerp(Color.blue,new Color(0f,255f,255), index/(numSquares*4));
-        }else if (index < cutoff*4) {
-            return Color.Lerp(new Color(0f,255f,255),Color.green, index/(numSquares*4));
-        }else if (index < cutoff*5) {
-            return Color.Lerp(Color.green,Color.yellow, index/(numSquares*4));
-        } else {
-            return Color.Lerp(Color.yellow,Color.red, index/(numSquares*4));
-        }
-    } 
 }
