@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
     void OnMove(InputValue movementValue)
     {
         Vector2 movementVector = movementValue.Get<Vector2>();
-
+        Debug.Log(movementVector);
         propulsion = movementVector.y;
         rotation = movementVector.x;
     }
@@ -124,8 +124,10 @@ public class PlayerController : MonoBehaviour
             rotationSum.z = rotationSum.z > 0 ? maxHorizontalTilt : -maxHorizontalTilt;
 
         // Apply force
-        rb.AddForce(new Vector3(Mathf.Sin(rotationSum.y), 0f, Mathf.Cos(rotationSum.y)) * propulsionSum * speed);
-
+        if (Mathf.Abs(propulsionSum) < 1.2f)
+        {
+            rb.AddForce(new Vector3(Mathf.Sin(rotationSum.y), 0f, Mathf.Cos(rotationSum.y)) * propulsionSum * speed);
+        }
         // Timer update
         if (!reachedFlag)
             time += Time.deltaTime;

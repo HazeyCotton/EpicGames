@@ -8,8 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Crystal
-  m_Shader: {fileID: 4800000, guid: 95186851ace7d6f4cad53efd831fe73b, type: 3}
-  m_ShaderKeywords: 
+  m_Shader: {fileID: 4800000, guid: 4ae935bab0143fe4ab16d7e7f9a13579, type: 3}
+  m_ShaderKeywords: _FALLOFFOPACITY_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -24,8 +24,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 08bfefe890a504e44a80c3a621c99ab7, type: 3}
-        m_Scale: {x: 10, y: 10}
+        m_Texture: {fileID: 2800000, guid: 3af290a993b192b47b6c39ba99894238, type: 3}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _CubeMap:
         m_Texture: {fileID: 8900000, guid: be42bf0db74da9a4f9453209d4a79a40, type: 3}
@@ -48,15 +48,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 19555d7d9d114c7f1100f5ab44295342, type: 3}
-        m_Scale: {x: 5, y: 5}
+        m_Texture: {fileID: 2800000, guid: 67713c832ac3a384ab7d75a67235bf13, type: 3}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 4b8d081e9d114c7f1100f5ab44295342, type: 3}
-        m_Scale: {x: 5, y: 5}
+        m_Texture: {fileID: 2800000, guid: 67713c832ac3a384ab7d75a67235bf13, type: 3}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 3af290a993b192b47b6c39ba99894238, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
@@ -98,10 +98,10 @@ Material:
     - _DstBlend: 0
     - _EmissiveIntensity: 1
     - _EnvironmentReflections: 1
-    - _Fade: 0.2
+    - _Fade: 0
     - _FalloffFade: 0
     - _FalloffFade1: 0
-    - _FalloffOpacity: 0
+    - _FalloffOpacity: 1
     - _FalloffOpacityIntensity: 1
     - _FresnelStrength: 0
     - _GlossMapScale: 0
@@ -109,16 +109,16 @@ Material:
     - _GlossinessDecal: 0.5
     - _GlossyReflections: 0
     - _GradientFade: 1
-    - _Intensity: 1
+    - _Intensity: 2
     - _Invert: 0
     - _InvertAlbedoA1: 0
     - _InvertFresnelFade: 0
-    - _Metallic: 1
+    - _Metallic: 0.8
     - _MetallicDecal: 0.2
     - _OcclusionStrength: 1
     - _OffsetX: 0
     - _OffsetY: 0
-    - _Opacity: 0.2
+    - _Opacity: 0.3
     - _Parallax: 0.005
     - _PowerFalloffFade: 1
     - _PowerFalloffOpacity: 1
@@ -127,9 +127,9 @@ Material:
     - _ReceiveShadows: 1
     - _ReflectionDecal: 0
     - _ReflectionIntensity: 1
-    - _Refraction: 1.5
+    - _Refraction: 1
     - _Rotation: 0
-    - _Saturation: 5
+    - _Saturation: 6
     - _SaturationDecal: 0
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
