@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -58239,6 +58239,22 @@ PrefabInstance:
       propertyPath: m_FontData.m_FontStyle
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6221192445357818241, guid: bd6f9cb8fb0f9f849aac6c8ab24e31ac, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 320
+      objectReference: {fileID: 0}
+    - target: {fileID: 6221192445357818241, guid: bd6f9cb8fb0f9f849aac6c8ab24e31ac, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6221192445357818241, guid: bd6f9cb8fb0f9f849aac6c8ab24e31ac, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6221192445357818241, guid: bd6f9cb8fb0f9f849aac6c8ab24e31ac, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -40
+      objectReference: {fileID: 0}
     - target: {fileID: 6578576292684679272, guid: bd6f9cb8fb0f9f849aac6c8ab24e31ac, type: 3}
       propertyPath: m_SizeDelta.x
       value: 150
@@ -58271,6 +58287,10 @@ PrefabInstance:
       propertyPath: m_FontData.m_FontStyle
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6949935698841079939, guid: bd6f9cb8fb0f9f849aac6c8ab24e31ac, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6949935698963840314, guid: bd6f9cb8fb0f9f849aac6c8ab24e31ac, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -58298,6 +58318,10 @@ PrefabInstance:
     - target: {fileID: 6949935698972901162, guid: bd6f9cb8fb0f9f849aac6c8ab24e31ac, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949935698972901163, guid: bd6f9cb8fb0f9f849aac6c8ab24e31ac, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6949935698972901165, guid: bd6f9cb8fb0f9f849aac6c8ab24e31ac, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -58445,7 +58469,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6949935700412406751, guid: bd6f9cb8fb0f9f849aac6c8ab24e31ac, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 80
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949935700412406751, guid: bd6f9cb8fb0f9f849aac6c8ab24e31ac, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949935700412406751, guid: bd6f9cb8fb0f9f849aac6c8ab24e31ac, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -112
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627301990042804475, guid: bd6f9cb8fb0f9f849aac6c8ab24e31ac, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627301990042804475, guid: bd6f9cb8fb0f9f849aac6c8ab24e31ac, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627301990042804475, guid: bd6f9cb8fb0f9f849aac6c8ab24e31ac, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6949935699532396928, guid: bd6f9cb8fb0f9f849aac6c8ab24e31ac, type: 3}

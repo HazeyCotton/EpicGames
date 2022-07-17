@@ -15,6 +15,13 @@ public class MainSceneUI : MonoBehaviour
         Scenes.OpenScene("Level_1");
     }
 
+    public void Tutorial()
+    {
+        Menu.SetActive(false);
+        Levels.SetActive(false);
+        Scenes.OpenScene("Level_0");
+    }
+
     public void Level_Selector()
     {
         Menu.SetActive(false);
