@@ -6,10 +6,10 @@ using static PlayerController;
 public class CoinScript: MonoBehaviour
 {
 
-    public float spinRate;
-    public float xRot;
-    public float yRot;
-    public float zRot;
+    private float spinRate;
+    private float xRot;
+    private float yRot;
+    private float zRot;
 
     public float bounceRate;
     public float bounceLimit;
@@ -33,12 +33,12 @@ public class CoinScript: MonoBehaviour
     {
         delFrameCounter = 0;
         pickedUp = false;
-        initPosY = transform.position.y;
+        initPosY = transform.localPosition.z;
         spinRate = 3f;
         xRot = 45f;
         yRot = 10f;
-        bounceRate = 0.5f;
-        bounceLimit = 0.5f;
+        bounceRate = 0.01f;
+        bounceLimit = -0.01f;
         bounceHeight = initPosY;
         NUM_FRAMES_BEFORE_DELETE = 20;
         pickupAnimStart = false;
@@ -63,22 +63,22 @@ public class CoinScript: MonoBehaviour
 
         }
 
-        if ((bounceHeight-initPosY) > bounceLimit) 
+        if ((bounceHeight-initPosY) < bounceLimit) 
         {
             goingUp = false;
-        } else if ((bounceHeight-initPosY) < 0)
+        } else if ((bounceHeight-initPosY) > 0)
         {
             goingUp = true;
         }
 
-        if (goingUp) 
+        if (!goingUp) 
         {
             bounceHeight += (bounceRate * Time.deltaTime);
         } else {
             bounceHeight -= (bounceRate * Time.deltaTime);
         }
 
-        transform.position = new Vector3(transform.position.x, bounceHeight, transform.position.z);
+        transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, bounceHeight);
         transform.Rotate(new Vector3(xRot,yRot,zRot) * (spinRate * Time.deltaTime));
     }
 

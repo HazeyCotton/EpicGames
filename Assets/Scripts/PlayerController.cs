@@ -87,8 +87,8 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         // Speed limitation
-        if (speed > 10)
-            speed -= 1 * Time.deltaTime;
+        //if (speed > 10)
+            //speed -= 1 * Time.deltaTime;
 
         // Propulsion control
         if (propulsion == 0) {
@@ -124,10 +124,12 @@ public class PlayerController : MonoBehaviour
             rotationSum.z = rotationSum.z > 0 ? maxHorizontalTilt : -maxHorizontalTilt;
 
         // Apply force
-        if (Mathf.Abs(propulsionSum) < 1.2f)
+        if (Mathf.Abs(propulsionSum) < 2f)
         {
-            rb.AddForce(new Vector3(Mathf.Sin(rotationSum.y), 0f, Mathf.Cos(rotationSum.y)) * propulsionSum * speed);
+            
         }
+
+        rb.AddForce(new Vector3(Mathf.Sin(rotationSum.y), 0f, Mathf.Cos(rotationSum.y)) * propulsionSum * speed);
         // Timer update
         if (!reachedFlag)
             time += Time.deltaTime;
