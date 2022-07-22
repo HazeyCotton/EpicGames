@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 7414464626267489442}
   m_Layer: 0
   m_Name: Rightwall
-  m_TagString: Untagged
+  m_TagString: ObstacleOrRailing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -853,7 +853,7 @@ GameObject:
   - component: {fileID: 7414464626972938434}
   m_Layer: 0
   m_Name: Arch
-  m_TagString: Untagged
+  m_TagString: ObstacleOrRailing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
