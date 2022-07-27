@@ -15,6 +15,12 @@ public class ProjectileThrower : MonoBehaviour
 
     public GameObject Target;
 
+    public GameObject cannonFrame;
+
+    public GameObject cannonBarrel;
+
+    public AudioSource cannonSound;
+
     public Rigidbody targetRbody;
 
     public float StartTime = 0f;
@@ -38,7 +44,7 @@ public class ProjectileThrower : MonoBehaviour
 
     float launcherVel = 0f;
 
-
+    private ParticleSystem cannonFire;
 
     public float DB_launchAngle = 0f;
 
@@ -83,6 +89,13 @@ public class ProjectileThrower : MonoBehaviour
             Debug.Log("No rigid body");
         }
         OrigShotSpeed = ShotSpeed;
+
+        if (cannonBarrel.GetComponent<ParticleSystem>() != null)
+        {
+            cannonFire = cannonBarrel.GetComponent<ParticleSystem>();
+        } else {
+            Debug.Log("No cannon fire");
+        }
     }
 
 
@@ -94,7 +107,8 @@ public class ProjectileThrower : MonoBehaviour
 
     private void Update()
     {
-
+        LaunchPos = cannonBarrel.transform.position;
+        cannonFrame.transform.LookAt(Target.transform);
     }
 
 
@@ -159,13 +173,20 @@ public class ProjectileThrower : MonoBehaviour
                 var throwVec = projectileDir * projectileSpeed;
 
                 p.rbody.AddForce(throwVec, ForceMode.VelocityChange);
-
+                cannonBarrel.SetActive(true);
                 LastShotTime = Time.timeSinceLevelLoad;
+                //cannonBarrel.SetActive(false);
+                Invoke("StopShoot", 3f);
             
             }
 
         }
 
+    }
+
+    void StopShoot()
+    {
+        cannonBarrel.SetActive(false);
     }
 
         // Note: You have to implement the following method with prediction:
