@@ -86,16 +86,26 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Timer update
+        if (!reachedFlag)
+            time += Time.deltaTime;
+
+        SetTimerLabel();
+        SetLivesLabel();
+        SetScoreLabel();
+
         // Speed limitation
         //if (speed > 10)
             //speed -= 1 * Time.deltaTime;
 
         // Propulsion control
         if (propulsion == 0) {
+            rb.velocity *= 1f-deceleration;
+            //Debug.Log(rb.velocity);
             propulsionSum *= 1f-deceleration;
             rotationSum.x *= 1f-rotationDeceleration;
         } else {
-            propulsionSum += propulsion*acceleration*Time.deltaTime;
+            propulsionSum = propulsion*acceleration*Time.deltaTime;
             rotationSum.x += propulsion*rotationSpeed*Time.deltaTime;
         }
 
@@ -106,7 +116,15 @@ public class PlayerController : MonoBehaviour
         //audio stuff
         engineVolume = Mathf.Abs(propulsionSum / maxSpeed);
         audioSource.volume = engineVolume;
-        //Debug.Log(engineVolume);
+
+
+
+
+
+
+
+
+
 
 
         // Rotation control
@@ -123,20 +141,9 @@ public class PlayerController : MonoBehaviour
         if (Mathf.Abs(rotationSum.z) > maxHorizontalTilt)
             rotationSum.z = rotationSum.z > 0 ? maxHorizontalTilt : -maxHorizontalTilt;
 
-        // Apply force
-        if (Mathf.Abs(propulsionSum) < 2f)
-        {
-            
-        }
-
-        rb.AddForce(new Vector3(Mathf.Sin(rotationSum.y), 0f, Mathf.Cos(rotationSum.y)) * propulsionSum * speed);
-        // Timer update
-        if (!reachedFlag)
-            time += Time.deltaTime;
-
-        SetTimerLabel();
-        SetLivesLabel();
-        SetScoreLabel();
+        rb.velocity += new Vector3(Mathf.Sin(rotationSum.y), 0f, Mathf.Cos(rotationSum.y)) * propulsionSum * speed;
+        
+        
     }
 
     private void OnTriggerEnter(Collider other)
