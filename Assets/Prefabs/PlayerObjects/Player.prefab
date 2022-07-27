@@ -232,14 +232,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b1a960e9bf79fb4ba1379969ca01fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 12
   acceleration: 0.9
-  deceleration: 0.94
+  deceleration: 0.03
   maxSpeed: 1
   rotationSpeed: 2.5
   rotationDeceleration: 0.1
-  maxVerticalTilt: 0.15
-  maxHorizontalTilt: 0.3
+  maxVerticalTilt: 0
+  maxHorizontalTilt: 0
   timerLabel: {fileID: 0}
   livesLabel: {fileID: 0}
   scoreLabel: {fileID: 0}
