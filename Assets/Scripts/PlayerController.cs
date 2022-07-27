@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
 
         // Propulsion control
         if (propulsion == 0) {
-            rb.velocity *= 1f-deceleration;
+            rb.velocity = new Vector3(rb.velocity.x*(1f-deceleration), rb.velocity.y, rb.velocity.z*(1f-deceleration)) ;
             //Debug.Log(rb.velocity);
             propulsionSum *= 1f-deceleration;
             rotationSum.x *= 1f-rotationDeceleration;
@@ -116,15 +116,6 @@ public class PlayerController : MonoBehaviour
         //audio stuff
         engineVolume = Mathf.Abs(propulsionSum / maxSpeed);
         audioSource.volume = engineVolume;
-
-
-
-
-
-
-
-
-
 
 
         // Rotation control
