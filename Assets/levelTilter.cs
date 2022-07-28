@@ -10,9 +10,9 @@ public class levelTilter : MonoBehaviour
     private float xTilt;
     private float zTilt;
 
-    public float detiltVal;
-    public float tiltVal;
-    public float maxTilt;
+    private float detiltVal = 0.5f;
+    private float tiltVal = 2f;
+    private float maxTilt = 8f;
 
     private bool xMoved;
     private bool zMoved;
