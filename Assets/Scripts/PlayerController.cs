@@ -9,8 +9,8 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 0;
     public float acceleration = 1.1f;
-    public float deceleration = 1.4f;
-    public float maxSpeed = 2;
+    private float deceleration = 0.03f;
+    private float maxSpeed = 4f;
     public float rotationSpeed = 2.5f;
     public float rotationDeceleration = 0.1f;
     public float maxVerticalTilt = 0.15f;
