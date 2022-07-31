@@ -39,24 +39,25 @@ public class PlayerController : MonoBehaviour
 
     AudioSource audioSource;
     float engineVolume;
+    float engineVolumeMinimum;
     float oldPropulsion;
 
     void Start()
     {
          _lastCheckpointLookAt = new Vector3(this.transform.position.x +(5f * Mathf.Sin(this.transform.rotation.y/180f*Mathf.PI)),
                                         this.transform.position.y,
-                                            this.transform.position.z +(5f * Mathf.Cos(this.transform.rotation.y/180f*Mathf.PI))); 
-       /* Debug.Log(this.gameObject.transform.position);
-        Debug.Log(_lastCheckpointLookAt);
-        Debug.Log(this.transform.rotation.y);
-        Debug.Log(5f * Mathf.Cos(this.transform.rotation.y/180f*Mathf.PI));
-        Debug.Log(5f * Mathf.Sin(this.transform.rotation.y/180f*Mathf.PI));*/
-
+                                            this.transform.position.z +(5f * Mathf.Cos(this.transform.rotation.y/180f*Mathf.PI)));
+        /* Debug.Log(this.gameObject.transform.position);
+         Debug.Log(_lastCheckpointLookAt);
+         Debug.Log(this.transform.rotation.y);
+         Debug.Log(5f * Mathf.Cos(this.transform.rotation.y/180f*Mathf.PI));
+         Debug.Log(5f * Mathf.Sin(this.transform.rotation.y/180f*Mathf.PI));*/
+        engineVolumeMinimum = 0.7f;
 
     }
     void Awake()
     {
-        engineVolume = 0f;
+        engineVolume = engineVolumeMinimum;
         audioSource = GetComponent<AudioSource>();
 
 
@@ -113,9 +114,18 @@ public class PlayerController : MonoBehaviour
         if (Mathf.Abs(propulsionSum) > maxSpeed)
             propulsionSum = propulsionSum > 0 ? maxSpeed : -maxSpeed;
 
+        float maxPropulsion = 0.018f;
+
+        
         //audio stuff
-        engineVolume = Mathf.Abs(propulsionSum / maxSpeed);
-        audioSource.volume = engineVolume;
+        engineVolume = Mathf.Abs(propulsionSum / maxPropulsion);
+        if (engineVolume < engineVolumeMinimum) {
+            audioSource.volume = engineVolumeMinimum;
+        } else {
+            audioSource.volume = engineVolume;
+        }
+        
+        Debug.Log("volume: " + propulsionSum);
 
 
         // Rotation control
@@ -150,8 +160,9 @@ public class PlayerController : MonoBehaviour
             reachedFlag = true;
             Scene scene = SceneManager.GetActiveScene();
 
-            if (scene.name == "Level_1")
-            {
+            if (scene.name == "Level_0") {
+                SceneManager.LoadScene("Level_1");
+            } else if (scene.name == "Level_1") {
                 SceneManager.LoadScene("Level_2");
             } else if (scene.name == "Level_2") {
                 SceneManager.LoadScene("Level_3");
