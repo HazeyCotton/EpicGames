@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 0;
+    private float speed = 9f;
     public float acceleration = 1.1f;
     private float deceleration = 0.03f;
     private float maxSpeed = 4f;
@@ -42,6 +42,8 @@ public class PlayerController : MonoBehaviour
     float engineVolumeMinimum;
     float oldPropulsion;
 
+    private int accelerationCounter;
+
     void Start()
     {
          _lastCheckpointLookAt = new Vector3(this.transform.position.x +(5f * Mathf.Sin(this.transform.rotation.y/180f*Mathf.PI)),
@@ -53,6 +55,8 @@ public class PlayerController : MonoBehaviour
          Debug.Log(5f * Mathf.Cos(this.transform.rotation.y/180f*Mathf.PI));
          Debug.Log(5f * Mathf.Sin(this.transform.rotation.y/180f*Mathf.PI));*/
         engineVolumeMinimum = 0.7f;
+
+        accelerationCounter = 0;
 
     }
     void Awake()
