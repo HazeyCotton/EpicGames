@@ -27,4 +27,9 @@ public class LevelSceneUI : MonoBehaviour
         Pause.SetActive(false);
         Scenes.OpenScene("StartScreenB");
     }
+
+    public void Pause_Quit()
+    {
+        Application.Quit();
+    }
 }
