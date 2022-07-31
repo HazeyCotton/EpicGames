@@ -113,9 +113,12 @@ public class PlayerController : MonoBehaviour
         if (Mathf.Abs(propulsionSum) > maxSpeed)
             propulsionSum = propulsionSum > 0 ? maxSpeed : -maxSpeed;
 
+        float maxPropulsion = 0.018f;
+        
         //audio stuff
-        engineVolume = Mathf.Abs(propulsionSum / maxSpeed);
+        engineVolume = Mathf.Abs(propulsionSum / maxPropulsion);
         audioSource.volume = engineVolume;
+        Debug.Log("volume: " + propulsionSum);
 
 
         // Rotation control
@@ -150,8 +153,9 @@ public class PlayerController : MonoBehaviour
             reachedFlag = true;
             Scene scene = SceneManager.GetActiveScene();
 
-            if (scene.name == "Level_1")
-            {
+            if (scene.name == "Level_0") {
+                SceneManager.LoadScene("Level_1");
+            } else if (scene.name == "Level_1") {
                 SceneManager.LoadScene("Level_2");
             } else if (scene.name == "Level_2") {
                 SceneManager.LoadScene("Level_3");

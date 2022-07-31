@@ -28,7 +28,7 @@ public class Tutorial : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("textbox index: " + textboxIndex);
+        //Debug.Log("textbox index: " + textboxIndex);
 
         //loop through all textboxes and set which ones are active
         //for (int i = 0; i < textboxes.Length; i++)
