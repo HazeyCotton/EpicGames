@@ -15,20 +15,29 @@ public class KillLogic : MonoBehaviour
 
     void FixedUpdate()
     {
+        
+        
         if (Falling)
         {
+            
             Dethklok++;
             if (Dethklok > 30)
             {
                 playerRb.Sleep();
                 playerPC.transform.position = playerPC._lastCheckpointPos;
+
+
+                if (SceneManager.GetActiveScene().name != "Level_0")
+                {
+                    playerPC.deathCount++;
+                }
                 
-                playerPC.deathCount++;
 
                 playerRb.velocity = Vector3.zero;
 
                 playerPC.turnToTarget(playerPC._lastCheckpointLookAt);
                 playerRb.WakeUp();
+                
 
                 if (playerPC.deathCount >= 3)
                 {
