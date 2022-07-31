@@ -39,24 +39,25 @@ public class PlayerController : MonoBehaviour
 
     AudioSource audioSource;
     float engineVolume;
+    float engineVolumeMinimum;
     float oldPropulsion;
 
     void Start()
     {
          _lastCheckpointLookAt = new Vector3(this.transform.position.x +(5f * Mathf.Sin(this.transform.rotation.y/180f*Mathf.PI)),
                                         this.transform.position.y,
-                                            this.transform.position.z +(5f * Mathf.Cos(this.transform.rotation.y/180f*Mathf.PI))); 
-       /* Debug.Log(this.gameObject.transform.position);
-        Debug.Log(_lastCheckpointLookAt);
-        Debug.Log(this.transform.rotation.y);
-        Debug.Log(5f * Mathf.Cos(this.transform.rotation.y/180f*Mathf.PI));
-        Debug.Log(5f * Mathf.Sin(this.transform.rotation.y/180f*Mathf.PI));*/
-
+                                            this.transform.position.z +(5f * Mathf.Cos(this.transform.rotation.y/180f*Mathf.PI)));
+        /* Debug.Log(this.gameObject.transform.position);
+         Debug.Log(_lastCheckpointLookAt);
+         Debug.Log(this.transform.rotation.y);
+         Debug.Log(5f * Mathf.Cos(this.transform.rotation.y/180f*Mathf.PI));
+         Debug.Log(5f * Mathf.Sin(this.transform.rotation.y/180f*Mathf.PI));*/
+        engineVolumeMinimum = 0.7f;
 
     }
     void Awake()
     {
-        engineVolume = 0f;
+        engineVolume = engineVolumeMinimum;
         audioSource = GetComponent<AudioSource>();
 
 
@@ -114,10 +115,16 @@ public class PlayerController : MonoBehaviour
             propulsionSum = propulsionSum > 0 ? maxSpeed : -maxSpeed;
 
         float maxPropulsion = 0.018f;
+
         
         //audio stuff
         engineVolume = Mathf.Abs(propulsionSum / maxPropulsion);
-        audioSource.volume = engineVolume;
+        if (engineVolume < engineVolumeMinimum) {
+            audioSource.volume = engineVolumeMinimum;
+        } else {
+            audioSource.volume = engineVolume;
+        }
+        
         Debug.Log("volume: " + propulsionSum);
 
 
