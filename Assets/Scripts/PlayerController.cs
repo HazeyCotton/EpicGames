@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
          Debug.Log(this.transform.rotation.y);
          Debug.Log(5f * Mathf.Cos(this.transform.rotation.y/180f*Mathf.PI));
          Debug.Log(5f * Mathf.Sin(this.transform.rotation.y/180f*Mathf.PI));*/
-        engineVolumeMinimum = 0.1f;
+        engineVolumeMinimum = 0.7f;
 
         accelerationCounter = 0;
 
@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
     void OnMove(InputValue movementValue)
     {
         Vector2 movementVector = movementValue.Get<Vector2>();
-        Debug.Log(movementVector);
+        //Debug.Log(movementVector);
         propulsion = movementVector.y;
         rotation = movementVector.x;
     }
