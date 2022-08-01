@@ -5,46 +5,46 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/GameScreen/StartScreenB.unity
     guid: 8777019d217b05e439ee43c68a2b16aa
   - enabled: 0
     path: Assets/Scenes/GameScreen/LevelSelection.unity
     guid: fea0f6b08343c4f5ab41b9d5c270b616
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Levels/Level_0.unity
     guid: c6e0c31a2465b468a89580048a888204
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Levels/Level_1.unity
     guid: 58e46804345062e46a9984a3c69fdb51
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Levels/Level_2.unity
     guid: 809ac764ce9ca40ec87f5580b1cf71a1
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Levels/Level_3.unity
     guid: d07de805b60f74884985c2e36a2363a3
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Levels/Level_4.unity
     guid: 51f4ceb942b5247979377f77eee80ce1
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Levels/Level_5.unity
     guid: c434c0f4e2ebe4c21a06c0aee5a49e7e
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/GameScreen/WinScene.unity
     guid: 9f079c1376a18e942a4cc13eb25587b9
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/GameScreen/LoseScene.unity
     guid: 8dbbde934ae1ef940857dc823adc6c9d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Old/StartScreen.unity
     guid: f7cad66ff54f84a09b26b364b35d9b4a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BuildingEnviroments/Ford Sample Level.unity
     guid: 4035d023107622a438576bfc6141287c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Template/Scenes/SampleScene.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Old/Sample Level.unity
     guid: 861b6c51b2aa54cf1ba8a70b48902fc2
   - enabled: 1
