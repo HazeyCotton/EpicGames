@@ -25,15 +25,15 @@ public class AudioManager : MonoBehaviour
         Play("BackgroundMusic");
     }
 
-    public void Play(string name) 
+    public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
         {
             Debug.Log("\"" + name + "\" SOUND NOT FOUND");
         }
-            
-        
+
+
         s.source.Play();
     }
 }

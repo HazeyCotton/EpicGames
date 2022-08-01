@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class MainSceneUI : MonoBehaviour
 {
@@ -74,5 +75,17 @@ public class MainSceneUI : MonoBehaviour
     public void goToLevelSelection()
     {
         SceneManager.LoadScene("LevelSelection");
+    }
+
+    public void goToMainMenu()
+    {
+        SceneManager.LoadScene("StartScreenB");
+    }
+
+    public AudioMixer audioMixer;
+
+    public void SetVolume(float volume)
+    {
+        audioMixer.SetFloat("Volume", volume);
     }
 }
