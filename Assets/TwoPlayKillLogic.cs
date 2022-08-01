@@ -46,9 +46,10 @@ public class TwoPlayKillLogic : MonoBehaviour
                 strangerRb.Sleep();
                 strangerPC.transform.position = strangerStartingPosition;
                 
-                if (SceneManager.GetActiveScene().name != "Level_0") {
-                    playerPC.deathCount++;
-                }
+                //if (SceneManager.GetActiveScene().name != "Level_0") {
+                //    playerPC.deathCount++;
+                //    strangerPC.deathCount++;
+                //}
 
 
                 playerRb.velocity = Vector3.zero;
@@ -92,7 +93,7 @@ public class TwoPlayKillLogic : MonoBehaviour
                 if (c.gameObject.tag == "Player" && rb != null) {
                     playerPC = pc;
                     playerRb = rb;
-
+                    playerPC.deathCount++;
                     //strangerPC = spc;
                     //strangerRb = srb;
 
@@ -110,7 +111,8 @@ public class TwoPlayKillLogic : MonoBehaviour
                 if (c.gameObject.tag == "Player" && srb != null) {
                     strangerPC = spc;
                     strangerRb = srb;
-
+                    //strangerPC.deathCount++;
+                    playerPC.deathCount++;
                     //strangerPC = spc;
                     //strangerRb = srb;
 
