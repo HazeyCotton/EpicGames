@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+ //i have no idea why i named this level 2 instructions.
+ //it's for the one with the two foxes
 public class LevelTwoInstructions : MonoBehaviour
 {
     public GameObject[] textboxes;

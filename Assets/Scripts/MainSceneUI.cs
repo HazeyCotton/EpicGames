@@ -43,7 +43,7 @@ public class MainSceneUI : MonoBehaviour
     {
         Menu.SetActive(false);
         Levels.SetActive(false);
-        Scenes.OpenScene("Level_1");
+        Scenes.OpenScene("Level_6");
     }
 
     public void Levels_Lv2()
@@ -65,6 +65,13 @@ public class MainSceneUI : MonoBehaviour
     {
         Scenes.OpenScene("Level_5");
     }
+
+    public void Levels_Lv6()
+    {
+        Scenes.OpenScene("Level_1");
+    }
+
+
 
     public void Levels_Back()
     {

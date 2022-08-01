@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScreen/StartScreenB.unity
     guid: 8777019d217b05e439ee43c68a2b16aa
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/GameScreen/LevelSelection.unity
     guid: fea0f6b08343c4f5ab41b9d5c270b616
   - enabled: 1

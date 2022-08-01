@@ -74,6 +74,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Round_shot
       objectReference: {fileID: 0}
+    - target: {fileID: 1921053189464322, guid: 303013469678840449464683ecd0b868, type: 3}
+      propertyPath: m_TagString
+      value: ObstacleOrRailing
+      objectReference: {fileID: 0}
     - target: {fileID: 4396235246789052, guid: 303013469678840449464683ecd0b868, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -118,6 +122,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 23736324697617104, guid: 303013469678840449464683ecd0b868, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1c4ad93c3b6e82e4aac2bd5a72933d9b, type: 2}
     - target: {fileID: 64618751578880722, guid: 303013469678840449464683ecd0b868, type: 3}
       propertyPath: m_Convex
       value: 1
