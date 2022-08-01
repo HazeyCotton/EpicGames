@@ -13,7 +13,7 @@ public class MainSceneUI : MonoBehaviour
     {
         Menu.SetActive(false);
         Levels.SetActive(false);
-        Scenes.OpenScene("Level_1");
+        Scenes.OpenScene("Level_6");
     }
 
     public void Tutorial()
