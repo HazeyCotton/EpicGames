@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
          Debug.Log(this.transform.rotation.y);
          Debug.Log(5f * Mathf.Cos(this.transform.rotation.y/180f*Mathf.PI));
          Debug.Log(5f * Mathf.Sin(this.transform.rotation.y/180f*Mathf.PI));*/
-        engineVolumeMinimum = 0.7f;
+        engineVolumeMinimum = 0.1f;
 
         accelerationCounter = 0;
 
@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour
         if (engineVolume < engineVolumeMinimum) {
             audioSource.volume = engineVolumeMinimum;
         } else {
-            audioSource.volume = engineVolume;
+            audioSource.volume = engineVolumeMinimum;
         }
         
         Debug.Log("volume: " + propulsionSum);
