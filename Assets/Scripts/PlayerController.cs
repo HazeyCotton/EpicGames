@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
          Debug.Log(this.transform.rotation.y);
          Debug.Log(5f * Mathf.Cos(this.transform.rotation.y/180f*Mathf.PI));
          Debug.Log(5f * Mathf.Sin(this.transform.rotation.y/180f*Mathf.PI));*/
-        engineVolumeMinimum = 0.3f;
+        engineVolumeMinimum = 0.4f;
 
         accelerationCounter = 0;
 
