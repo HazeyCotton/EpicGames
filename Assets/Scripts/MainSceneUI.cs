@@ -75,4 +75,9 @@ public class MainSceneUI : MonoBehaviour
     {
         SceneManager.LoadScene("LevelSelection");
     }
+
+    public void goToMainMenu()
+    {
+        SceneManager.LoadScene("StartScreenB");
+    }
 }
