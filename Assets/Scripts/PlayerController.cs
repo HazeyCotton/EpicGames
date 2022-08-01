@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
     void OnMove(InputValue movementValue)
     {
         Vector2 movementVector = movementValue.Get<Vector2>();
-        Debug.Log(movementVector);
+        //Debug.Log(movementVector);
         propulsion = movementVector.y;
         rotation = movementVector.x;
     }
@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour
             audioSource.volume = engineVolume;
         }
         
-        Debug.Log("volume: " + propulsionSum);
+        //Debug.Log("volume: " + propulsionSum);
 
 
         // Rotation control
