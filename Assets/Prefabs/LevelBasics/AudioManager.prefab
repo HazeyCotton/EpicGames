@@ -47,7 +47,7 @@ MonoBehaviour:
   - name: PlayerDeath
     clip: {fileID: 8300000, guid: 2577710ba2fedff49afe28b2b3710e9b, type: 3}
     loop: 0
-    volume: 0.2
+    volume: 0.25
     pitch: 0.5
     source: {fileID: 0}
   - name: BackgroundMusic
@@ -59,6 +59,6 @@ MonoBehaviour:
   - name: HitObject
     clip: {fileID: 8300000, guid: 0d34d6e748eb93042b0ff0bf1c6f120c, type: 3}
     loop: 0
-    volume: 0.1
+    volume: 0.25
     pitch: 1
     source: {fileID: 0}
